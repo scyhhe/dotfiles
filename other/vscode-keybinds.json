@@ -1,0 +1,123 @@
+// {
+//     "version":2,
+//     "content":"{\"mac\":\"// Empty\\n[\\n    {\\n        \\\"key\\\": \\\"cmd+w\\\",\\n        \\\"command\\\": \\\"editor.action.smartSelect.expand\\\",\\n        \\\"when\\\": \\\"editorTextFocus\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"ctrl+shift+right\\\",\\n        \\\"command\\\": \\\"-editor.action.smartSelect.expand\\\",\\n        \\\"when\\\": \\\"editorTextFocus\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+u\\\",\\n        \\\"command\\\": \\\"editor.action.deleteLines\\\",\\n        \\\"when\\\": \\\"textInputFocus && !editorReadonly\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"shift+cmd+k\\\",\\n        \\\"command\\\": \\\"-editor.action.deleteLines\\\",\\n        \\\"when\\\": \\\"textInputFocus && !editorReadonly\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+n\\\",\\n        \\\"command\\\": \\\"workbench.action.quickOpen\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+p\\\",\\n        \\\"command\\\": \\\"-workbench.action.quickOpen\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"alt+j\\\",\\n        \\\"command\\\": \\\"editor.action.nextSelectionMatchFindAction\\\",\\n        \\\"when\\\": \\\"editorFocus\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+f3\\\",\\n        \\\"command\\\": \\\"-editor.action.nextSelectionMatchFindAction\\\",\\n        \\\"when\\\": \\\"editorFocus\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+t\\\",\\n        \\\"command\\\": \\\"workbench.action.terminal.toggleTerminal\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"ctrl+`\\\",\\n        \\\"command\\\": \\\"-workbench.action.terminal.toggleTerminal\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"alt+tab\\\",\\n        \\\"command\\\": \\\"editor.action.indentLines\\\",\\n        \\\"when\\\": \\\"editorTextFocus && !editorReadonly\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+]\\\",\\n        \\\"command\\\": \\\"-editor.action.indentLines\\\",\\n        \\\"when\\\": \\\"editorTextFocus && !editorReadonly\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"shift+alt+tab\\\",\\n        \\\"command\\\": \\\"editor.action.outdentLines\\\",\\n        \\\"when\\\": \\\"editorTextFocus && !editorReadonly\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+[\\\",\\n        \\\"command\\\": \\\"-editor.action.outdentLines\\\",\\n        \\\"when\\\": \\\"editorTextFocus && !editorReadonly\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"ctrl+f\\\",\\n        \\\"command\\\": \\\"editor.action.formatDocument\\\",\\n        \\\"when\\\": \\\"editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"shift+alt+f\\\",\\n        \\\"command\\\": \\\"-editor.action.formatDocument\\\",\\n        \\\"when\\\": \\\"editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"ctrl+w\\\",\\n        \\\"command\\\": \\\"-workbench.action.switchWindow\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"ctrl+w\\\",\\n        \\\"command\\\": \\\"workbench.action.closeActiveEditor\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+w\\\",\\n        \\\"command\\\": \\\"-workbench.action.closeActiveEditor\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"alt+w\\\",\\n        \\\"command\\\": \\\"wrapSelection\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"ctrl+l\\\",\\n        \\\"command\\\": \\\"editor.action.transformToLowercase\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"ctrl+u\\\",\\n        \\\"command\\\": \\\"editor.action.transformToUppercase\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"s\\\",\\n        \\\"command\\\": \\\"-workbench.action.files.save\\\",\\n        \\\"when\\\": \\\"notebookEditorFocused && !inputFocus && !notebookOutputFocused\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+e\\\",\\n        \\\"command\\\": \\\"-actions.findWithSelection\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"cmd+e\\\",\\n        \\\"command\\\": \\\"workbench.action.openRecent\\\"\\n    },\\n    {\\n        \\\"key\\\": \\\"ctrl+r\\\",\\n        \\\"command\\\": \\\"-workbench.action.openRecent\\\"\\n    }\\n]\"}"
+// }
+[
+    {
+        "key": "cmd+w",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+right",
+        "command": "-editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+u",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+n",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "cmd+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "alt+j",
+        "command": "editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+f3",
+        "command": "-editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "alt+tab",
+        "command": "editor.action.indentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+]",
+        "command": "-editor.action.indentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+tab",
+        "command": "editor.action.outdentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+[",
+        "command": "-editor.action.outdentLines",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "-editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.switchWindow"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "cmd+w",
+        "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "alt+w",
+        "command": "wrapSelection"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "editor.action.transformToLowercase"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    {
+        "key": "s",
+        "command": "-workbench.action.files.save",
+        "when": "notebookEditorFocused && !inputFocus && !notebookOutputFocused"
+    },
+    {
+        "key": "cmd+e",
+        "command": "-actions.findWithSelection"
+    },
+    {
+        "key": "cmd+e",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    }
+]

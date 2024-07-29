@@ -25,6 +25,7 @@ brew 'yarn'
 
 # Personal
 brew 'iterm2'
+brew 'neovim'
 brew 'zsh'
 brew 'fd'
 brew 'zoxide'

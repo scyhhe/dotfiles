@@ -1,0 +1,111 @@
+// {"version":2,"content":"{\"settings\":\"{\\n    \\\"workbench.colorTheme\\\": \\\"GitHub Dark Dimmed\\\",\\n    \\\"materialTheme.fixIconsRunning\\\": false,\\n    \\\"editor.lineHeight\\\": 21,\\n    \\\"blade.format.enable\\\": true,\\n    \\\"editor.tabCompletion\\\": \\\"on\\\",\\n    \\\"gitlens.advanced.messages\\\": {\\n        \\\"suppressShowKeyBindingsNotice\\\": true\\n    },\\n    \\\"php.executablePath\\\": \\\"/usr/bin/php\\\",\\n    \\\"editor.fontFamily\\\": \\\"'Fira Code', 'JetBrains Mono', 'SF Mono', Menlo\\\",\\n    \\\"terminal.integrated.fontFamily\\\": \\\"'Fira Code', monospace\\\",\\n    \\\"editor.formatOnPaste\\\": true,\\n    \\\"sync.gist\\\": \\\"6616965b6f8dd498f3a066a4496ef336\\\",\\n    \\\"sync.quietSync\\\": false,\\n    \\\"sync.removeExtensions\\\": true,\\n    \\\"sync.syncExtensions\\\": true,\\n    \\\"sync.autoDownload\\\": false,\\n    \\\"sync.autoUpload\\\": false,\\n    \\\"sync.forceDownload\\\": false,\\n    \\\"editor.fontLigatures\\\": true,\\n    \\\"files.autoSaveDelay\\\": 500,\\n    \\\"git.autofetch\\\": true,\\n    \\\"editor.formatOnSave\\\": true,\\n    \\\"yaml.schemas\\\": {\\n        \\\"file:///Users/ivantoporkov/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json\\\": \\\"bitbucket-pipelines.yml\\\"\\n    },\\n    \\\"metals.serverVersion\\\": \\\"0.11.12\\\",\\n    \\\"metals.javaHome\\\": \\\"/Users/ivantoporkov/.sdkman/candidates/java/current\\\",\\n    \\\"editor.suggestSelection\\\": \\\"first\\\",\\n    \\\"workbench.editor.enablePreview\\\": false,\\n    \\\"vsintellicode.modify.editor.suggestSelection\\\": \\\"automaticallyOverrodeDefaultValue\\\",\\n    \\\"search.exclude\\\": {\\n        \\\"./.bloop\\\": true,\\n        \\\"./.metals\\\": true,\\n        \\\".bloop\\\": true,\\n        \\\".idea\\\": true,\\n        \\\".metals\\\": true,\\n        \\\".vscode\\\": true,\\n        \\\"**/.bloop\\\": true,\\n        \\\"**/.target\\\": true,\\n        \\\"**/*.class\\\": true,\\n        \\\"**/**/target\\\": true,\\n        \\\"*/.bloop\\\": true,\\n        \\\"*/.metals\\\": true,\\n        \\\"*/readonly\\\": true\\n    },\\n    \\\"diffEditor.renderSideBySide\\\": true,\\n    \\\"diffEditor.ignoreTrimWhitespace\\\": false,\\n    \\\"files.exclude\\\": {\\n        \\\"./.bloop\\\": true,\\n        \\\"**/.bloop\\\": true,\\n        \\\"**/.metals\\\": true,\\n        \\\"*/.bloop\\\": true\\n    },\\n    \\\"atlascode.jira.lastCreateSiteAndProject\\\": {\\n        \\\"siteId\\\": \\\"\\\",\\n        \\\"projectKey\\\": \\\"\\\"\\n    },\\n    \\\"files.watcherExclude\\\": {\\n        \\\".metals\\\": true,\\n        \\\"**/.ammonite\\\": true,\\n        \\\"**/.bloop\\\": true,\\n        \\\"**/.metals\\\": true,\\n        \\\"*/.metals\\\": true,\\n        \\\"*/readonly\\\": true\\n    },\\n    \\\"gitlens.advanced.telemetry.enabled\\\": false,\\n    \\\"metals.superMethodLensesEnabled\\\": true,\\n    \\\"liveshare.authenticationProvider\\\": \\\"GitHub\\\",\\n    \\\"launch\\\": {\\n        \\\"configurations\\\": [],\\n        \\\"compounds\\\": []\\n    },\\n    // Custom yaml tags for cloudformation\\n    \\\"yaml.customTags\\\": [\\n        \\\"!And\\\",\\n        \\\"!If\\\",\\n        \\\"!Not\\\",\\n        \\\"!Equals\\\",\\n        \\\"!Or\\\",\\n        \\\"!FindInMap sequence\\\",\\n        \\\"!Base64\\\",\\n        \\\"!Cidr\\\",\\n        \\\"!Ref\\\",\\n        \\\"!Sub\\\",\\n        \\\"!GetAtt\\\",\\n        \\\"!GetAZs\\\",\\n        \\\"!ImportValue\\\",\\n        \\\"!Select\\\",\\n        \\\"!Select sequence\\\",\\n        \\\"!Split\\\",\\n        \\\"!Join sequence\\\"\\n    ],\\n    // Enable/disable default YAML formatter (requires restart)\\n    \\\"yaml.format.enable\\\": true,\\n    \\\"redhat.telemetry.enabled\\\": true,\\n    \\\"jenkins.pipeline.linter.connector.url\\\": \\\"https://jenkins.firstbird.io/pipeline-model-converter/validate/\\\",\\n    \\\"jenkins.pipeline.linter.connector.user\\\": \\\"ivan.toporkov@firstbird.com\\\",\\n    \\\"git.enableSmartCommit\\\": true,\\n    \\\"workbench.iconTheme\\\": \\\"material-icon-theme\\\",\\n    \\\"atlascode.bitbucket.enabled\\\": false,\\n    \\\"[python]\\\": {\\n        \\\"editor.formatOnType\\\": true\\n    },\\n    \\\"terminal.integrated.env.osx\\\": {\\n        \\\"FIG_NEW_SESSION\\\": \\\"1\\\"\\n    },\\n    \\\"jupyter.disableJupyterAutoStart\\\": true,\\n    \\\"python.testing.cwd\\\": \\\"${workspaceFolder}\\\",\\n    \\\"python.pythonPath\\\": \\\"/opt/homebrew/opt/python@3.11/bin/python3\\\"\\n}\"}"}
+{
+    "workbench.colorTheme": "GitHub Dark Dimmed",
+    "materialTheme.fixIconsRunning": false,
+    "editor.lineHeight": 21,
+    "blade.format.enable": true,
+    "editor.tabCompletion": "on",
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "php.executablePath": "/usr/bin/php",
+    "editor.fontFamily": "'Fira Code', 'JetBrains Mono', 'SF Mono', Menlo",
+    "terminal.integrated.fontFamily": "'Fira Code', monospace",
+    "editor.formatOnPaste": true,
+    "sync.gist": "6616965b6f8dd498f3a066a4496ef336",
+    "sync.quietSync": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.forceDownload": false,
+    "editor.fontLigatures": true,
+    "files.autoSaveDelay": 500,
+    "git.autofetch": true,
+    "editor.formatOnSave": true,
+    "yaml.schemas": {
+        "file:///Users/ivantoporkov/.vscode/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "metals.serverVersion": "0.11.12",
+    "metals.javaHome": "/Users/ivantoporkov/.sdkman/candidates/java/current",
+    "editor.suggestSelection": "first",
+    "workbench.editor.enablePreview": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "search.exclude": {
+        "./.bloop": true,
+        "./.metals": true,
+        ".bloop": true,
+        ".idea": true,
+        ".metals": true,
+        ".vscode": true,
+        "**/.bloop": true,
+        "**/.target": true,
+        "**/*.class": true,
+        "**/**/target": true,
+        "*/.bloop": true,
+        "*/.metals": true,
+        "*/readonly": true
+    },
+    "diffEditor.renderSideBySide": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.exclude": {
+        "./.bloop": true,
+        "**/.bloop": true,
+        "**/.metals": true,
+        "*/.bloop": true
+    },
+    "atlascode.jira.lastCreateSiteAndProject": {
+        "siteId": "",
+        "projectKey": ""
+    },
+    "files.watcherExclude": {
+        ".metals": true,
+        "**/.ammonite": true,
+        "**/.bloop": true,
+        "**/.metals": true,
+        "*/.metals": true,
+        "*/readonly": true
+    },
+    "gitlens.advanced.telemetry.enabled": false,
+    "metals.superMethodLensesEnabled": true,
+    "liveshare.authenticationProvider": "GitHub",
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    },
+    "yaml.customTags": [
+        "!And",
+        "!If",
+        "!Not",
+        "!Equals",
+        "!Or",
+        "!FindInMap sequence",
+        "!Base64",
+        "!Cidr",
+        "!Ref",
+        "!Sub",
+        "!GetAtt",
+        "!GetAZs",
+        "!ImportValue",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Join sequence"
+    ],
+    "yaml.format.enable": true,
+    "redhat.telemetry.enabled": true,
+    "jenkins.pipeline.linter.connector.url": "https://jenkins.firstbird.io/pipeline-model-converter/validate/",
+    "jenkins.pipeline.linter.connector.user": "ivan.toporkov@firstbird.com",
+    "git.enableSmartCommit": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "atlascode.bitbucket.enabled": false,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "jupyter.disableJupyterAutoStart": true,
+    "python.testing.cwd": "${workspaceFolder}",
+    "python.pythonPath": "/opt/homebrew/opt/python@3.11/bin/python3"
+}
