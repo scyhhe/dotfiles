@@ -6,14 +6,14 @@ add_to_path() {
 }
 
 # Load dotfiles binaries
-add_to_path "$DOTFILES/bin"
+# add_to_path "$DOTFILES/bin"
 
-# Load global Composer tools
-add_to_path "$HOME/.composer/vendor/bin"
-
-# Load global Node installed binaries
-add_to_path "$HOME/.node/bin"
+# # Load global Composer tools
+# add_to_path "$HOME/.composer/vendor/bin"
+#
+# # Load global Node installed binaries
+# add_to_path "$HOME/.node/bin"
 
 # Use project specific binaries before global ones
-add_to_path "vendor/bin"
-add_to_path "node_modules/.bin"
+# add_to_path "vendor/bin"
+# add_to_path "node_modules/.bin"
