@@ -58,6 +58,7 @@ cask 'zoom'
 
 # Fonts
 cask 'font-lato'
+cask 'font-caskaydia-mono-nerd-font'
 cask 'font-open-sans'
 cask 'font-roboto'
 cask 'font-source-code-pro-for-powerline'
