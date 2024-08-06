@@ -19,7 +19,7 @@ export MNML_RPROMPT=('mnml_cwd 20')
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="minimal"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -116,4 +116,13 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# pure setup
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure
+
+# zoxide setup
+eval "$(zoxide init zsh)"
+
+# Must be the last line in .zshrc
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
