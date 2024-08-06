@@ -7,6 +7,9 @@ export DOTFILES=$HOME/.dotfiles
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Path to brew
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Minimal - Theme Settings
 export MNML_INSERT_CHAR="$"
 export MNML_PROMPT=(mnml_git mnml_keymap)
@@ -78,13 +81,17 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# export MANPATH="/usr/local/man:$MANPATH
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# ZSH integration with FZF
+source <(fzf --zsh)
+# Workaround for ALT-C 
+bindkey "ç" fzf-cd-widget
 
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
@@ -109,3 +116,4 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

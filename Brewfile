@@ -1,10 +1,7 @@
 # Taps
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 
 # Binaries
-brew 'awscli'
 brew 'bash' # Latest Bash version
 brew 'bat' # Used for spatie/visit
 brew 'coreutils' # Those that come with macOS are outdated
@@ -24,20 +21,23 @@ brew 'imagemagick'
 brew 'yarn'
 
 # Personal
-brew 'iterm2'
 brew 'neovim'
 brew 'zsh'
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
 brew 'fd'
 brew 'zoxide'
 brew 'yazi'
 brew 'fzf'
 brew 'ripgrep'
 
+cask 'iterm2'
 cask 'alt-tab'
 cask 'maccy'
 cask 'alfred'
 cask 'obsidian'
 cask 'bruno'
+cask 'arc'
 
 # Apps
 cask '1password'

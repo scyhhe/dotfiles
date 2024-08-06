@@ -1,3 +1,6 @@
-; [submodule "plugins/artisan"]
-; 	path = plugins/artisan
-; 	url = git@github.com:jessarcher/zsh-artisan.git
+[submodule "themes/iterm/catppuccin"]
+	path = themes/iterm/catppuccin
+	url = https://github.com/catppuccin/iterm.git
+[submodule "plugins/zsh-autosuggestions"]
+	path = plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

@@ -27,11 +27,11 @@ brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
 # Create a projects directories
-# mkdir $HOME/Code
-# mkdir $HOME/Herd
+mkdir $HOME/Personal
+mkdir $HOME/Work
 
 # Clone Github repositories
-# ./clone.sh
+./clone.sh
 
 # Symlink the Mackup config file to the home directory
 ln -s ./.mackup.cfg $HOME/.mackup.cfg
