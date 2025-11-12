@@ -31,27 +31,49 @@ brew 'yazi'
 brew 'fzf'
 brew 'ripgrep'
 brew 'pure'
+brew 'eza'
+brew 'htop'
+brew 'gh'
+brew 'stow'
+brew 'tldr'
+brew 'xh'
+brew 'atuin'
+brew '1password-cli'
 
-cask 'iterm2'
-cask 'alt-tab'
-cask 'maccy'
-cask 'alfred'
+# some things here are replaced by Raycast
+#cask 'iterm2'
+#cask 'arc'
 cask 'obsidian'
+cask 'linearmouse'
 cask 'bruno'
-cask 'arc'
+cask 'raycast'
+cask 'aerospace'
+cask 'zed'
+
+################
+
+# Canva
+# Some apps are managed by Kandji, so to avoid issues they will be commented out
+
+################
+brew "hivemind"
+brew "asdf"
+cask "google-cloud-sdk"
+brew "stern"
+brew "kubectx"
 
 # Apps
-cask '1password'
+#cask '1password'
 cask 'caffeine'
-cask 'docker'
-cask 'github'
-cask 'slack'
+#cask 'docker'
+#cask 'github'
+#cask 'slack'
 cask 'tableplus'
-cask 'the-unarchiver'
+#cask 'the-unarchiver'
 cask 'transmit'
-# cask 'tuple'
-cask 'visual-studio-code'
-cask 'zoom'
+#cask 'tuple'
+#cask 'visual-studio-code'
+#cask 'zoom'
 
 # Fonts
 cask 'font-lato'
@@ -62,6 +84,7 @@ cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
+cask 'font-jetbrains-mono-nerd-font'
 
 # Mac App Store - left as an example
 # mas 'Byword', id: 420212497
