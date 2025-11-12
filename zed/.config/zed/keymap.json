@@ -1,0 +1,45 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+      "ctrl-x ctrl-b ctrl-o": "pane::CloseOtherItems",
+      "ctrl-x ctrl-b ctrl-r": "pane::ReopenClosedItem"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    }
+  },
+  // Personal
+  {
+    "context": "Editor && vim_mode == normal",
+    // "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    // "use_key_equivalents": true,
+    "bindings": {
+      "ctrl-w i": "terminal_panel::Toggle",
+      "ctrl-w p": "agent::ToggleFocus",
+      "ctrl-w o": "project_panel::ToggleFocus",
+      "ctrl-w g": "git_panel::ToggleFocus",
+      "l d": "editor::DuplicateLineDown",
+      "\\ c": "agent::Keep",
+      "\\ a": "agent::KeepAll",
+      "\\ d": "agent::Reject"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": "vim::PushAddSurrounds"
+    }
+  }
+]

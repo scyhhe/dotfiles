@@ -1,0 +1,13 @@
+# ~/.gitconfig-personal  (stowed)
+
+[user]
+  name = Your Name
+  email = your_personal_email@example.com
+
+# If you sign commits with SSH or GPG, uncomment and fill:
+# [gpg]
+#   format = ssh
+# [user]
+#   signingkey = ssh-ed25519 AAAA...   # or your GPG key ID
+# [commit]
+#   gpgsign = true

@@ -1,0 +1,23 @@
+# ~/.gitconfig  (stowed)
+
+[core]
+	excludesFile = ~/.gitignore_global
+  editor = nvim
+[alias]
+  st = status -s
+  cge = config --global --edit
+  reset-origin = reset --hard @{u}
+  branch-diff = log --oneline --graph --decorate --abbrev-commit
+  ld = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+  ch = checkout
+; [pull]
+	; rebase = true
+[push]
+	autoSetupRemote = true
+
+[includeIf "gitdir:~/.dotfiles/"]
+  path = ~/.gitconfig-personal
+
+# Optionally treat this whole tree as "personal" too:
+[includeIf "gitdir:~/personal/"]
+  path = ~/.gitconfig-personal
