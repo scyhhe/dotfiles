@@ -70,7 +70,7 @@ let g:WhichKey_ShowTypedSequence = "true"
 " register leader
 let mapleader = " "
 
-nmap <leader>nn :NERDTree<CR>
+nmap <leader>nn :nerdtree<cr>
 
 " after block yank and paste, move cursor to the end of operated text and don't override register
 vnoremap p "_dP`]
@@ -109,7 +109,9 @@ nmap ,c yiw
 " select word
 nmap ,v viw
 
-"vnoremap g/ <Action>(FindInPath)
+" open search under cursor (Zed binding)
+vmap g/ <Action>(FindInPath)
+nmap g/ <Action>(FindInPath)
 
 " reselect last-pasted text
 nnoremap gp `[v`]
@@ -258,7 +260,7 @@ let g:WhichKeyDesc_goto_prev_element_under_caret_usage = "gN Goto previous eleme
 
 " reactivate some IDEA shortcuts
 :map <c-n> <Action>(SearchEverywhere)
-:map <leader>gg <Action>(GotoFile)
+:map <leader>ff <Action>(GotoFile)
 :map <c-b> <Action>(ShowUsages)
 :map <c-s> <Action>(SaveAll)
 :map <c-c> <Action>(GotoImplementation)

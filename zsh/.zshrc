@@ -168,7 +168,10 @@ alias local_stack="./production/local/bin/init_local_stack.sh var_canva s3"
 stowify() {
   local pkg="$1"
   if [[ -z "$pkg" ]]; then
-    echo "Usage: stowify <package>"
+    echo "Usage: stowify <package>\n"
+    echo "Used to prepare config folders for usage with GNU stow"
+    echo "Pre-configured for files and folders inside ~/.config"
+    echo "Will create the  corresponding folder in ~/.dotfiles, move the package from ~/.config and execute a dry-run of stow <package>"
     return 1
   fi
 
@@ -179,6 +182,7 @@ stowify() {
   echo 'cd ~/.dotfiles && stow -vt ~ "$pkg"'
 }
 
+###
 
 # pure setup
 fpath+=("$(brew --prefix)/share/zsh/site-functions")

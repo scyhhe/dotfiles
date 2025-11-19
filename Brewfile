@@ -1,16 +1,12 @@
 # Taps
 tap 'homebrew/bundle'
 
-# Binaries
+# Binaries, dependencies and system package updates
 brew 'bash' # Latest Bash version
-brew 'bat'
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'ffmpeg'
-brew 'gh'
 brew 'git'
 brew 'grep'
-brew 'httpie'
-brew 'jq' 
 brew 'mackup'
 brew 'mas' # Mac App Store manager
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
@@ -22,10 +18,12 @@ brew 'yarn'
 
 # Personal
 brew 'neovim'
+brew 'bat'
 brew 'zsh'
 brew 'zsh-autosuggestions'
 brew 'zsh-syntax-highlighting'
 brew 'fd'
+brew 'jq' 
 brew 'zoxide'
 brew 'yazi'
 brew 'fzf'
@@ -37,18 +35,18 @@ brew 'gh'
 brew 'stow'
 brew 'tldr'
 brew 'xh'
+brew 'httpie'
 brew 'atuin'
 brew '1password-cli'
 
-# some things here are replaced by Raycast
-#cask 'iterm2'
+# some things were replaced by Raycast
 #cask 'arc'
 cask 'obsidian'
 cask 'linearmouse'
-cask 'bruno'
 cask 'raycast'
 cask 'aerospace'
 cask 'zed'
+cask 'ghostty'
 
 ################
 
@@ -66,6 +64,7 @@ brew "kubectx"
 #cask '1password'
 cask 'caffeine'
 #cask 'docker'
+cask 'podman'
 #cask 'github'
 #cask 'slack'
 cask 'tableplus'
