@@ -19,6 +19,10 @@ fi
 rm -rf $HOME/.zshrc
 # ln -sw $HOME/.dotfiles/.zshrc $HOME/.zshrc <- replaced by stow a bit further down
 
+# Add stow to instantiate all symlinks - uses .stow-local-ignore to filter out files and folders
+# Specifically placed BEFORE existsalling anything via brew to avoid conflicts when symlinking
+stow -vR --target="$HOME" .
+
 # Update Homebrew recipes
 brew update
 
@@ -33,8 +37,8 @@ mkdir $HOME/Work
 # Clone Github repositories
 ./clone.sh
 
-# Add stow to instantiate all symlinks
-stow --target="$HOME" --verbose */
-
 # Set macOS preferences - we will run this last because this will reload the shell
 source ./.macos
+
+# (optional) restow if any packages wrote defaults
+stow -vR --target="$HOME" .
