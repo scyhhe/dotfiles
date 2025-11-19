@@ -19,7 +19,7 @@ export MNML_RPROMPT=('mnml_cwd 20')
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=""
+ZSH_THEME="minimal"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -118,21 +118,10 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-alias whodis-newpr="gh pr create --assignee @me --fill --draft"
-alias lg="lazygit"
-alias ld="lazydocker"
-alias cd="z"
-alias ls="eza --icons"
-alias cat="bat --color=always --theme=base16"
 
 # k8s work stuff - move out in separate shell setup
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-alias gcloud_removebg="gcloud container clusters get-credentials removebg-app --no-user-output-enabled --zone europe-west4-b --project removebg-226919 && gcloud config set project removebg-226919 --no-user-output-enabled"
-alias gcloud_tools="gcloud container clusters get-credentials tools --no-user-output-enabled --zone europe-west4 --project removebg-226919 && gcloud config set project removebg-226919 --no-user-output-enabled"
-
-alias gcloud_danni="gcloud container clusters get-credentials danni --no-user-output-enabled --zone europe-west4-b --project danni-278921 && gcloud config set project danni-278921 --no-user-output-enabled"
 
 alias kn="kubectl config set-context --current --namespace"
 
