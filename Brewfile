@@ -38,9 +38,11 @@ brew 'xh'
 brew 'httpie'
 brew 'atuin'
 brew '1password-cli'
+brew 'lazygit'
+brew 'lazydocker'
 
 # some things were replaced by Raycast
-#cask 'arc'
+cask 'arc'
 cask 'obsidian'
 cask 'linearmouse'
 cask 'raycast'
@@ -61,18 +63,15 @@ brew "stern"
 brew "kubectx"
 
 # Apps
-#cask '1password'
+cask '1password'
 cask 'caffeine'
+# pick one - would not recommend installing both at the same time 
 #cask 'docker'
 cask 'podman'
-#cask 'github'
-#cask 'slack'
+cask 'slack'
 cask 'tableplus'
-#cask 'the-unarchiver'
 cask 'transmit'
-#cask 'tuple'
-#cask 'visual-studio-code'
-#cask 'zoom'
+cask 'zoom'
 
 # Fonts
 cask 'font-lato'
