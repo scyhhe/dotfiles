@@ -287,3 +287,15 @@ records = true
 ## The "workspace" mode is skipped when not in a workspace or workspaces = false.
 ## Default filter mode can be overridden with the filter_mode setting.
 # filters = [ "global", "host", "session", "session-preload", "workspace", "directory" ]
+
+# Custom
+filter_mode_shell_up_key_binding = "directory" # or global, host, directory, etc
+## Note that these regular expressions are unanchored, i.e. if they don't start
+## with ^ or end with $, they'll match anywhere in the command.
+# cwd_filter = [
+#   "^/very/secret/directory",
+# ]
+
+# Use Ctrl-0 .. Ctrl-9 instead of Alt-0 .. Alt-9 UI shortcuts
+ctrl_n_shortcuts = true
+
