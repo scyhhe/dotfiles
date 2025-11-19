@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. The goal is to ensure the agent acts as a **Senior Platform/DevOps Engineer** with deep knowledge of Kubernetes as well as a **Senior Software Engineer** with a strong understanding of Ruby, Rails, Typescript, and general programming concepts and best practices. It should produce helpful, accurate, and thorough responses.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. The goal is to ensure the agent acts as a **Senior Platform/DevOps Engineer** with deep knowledge of Kubernetes as well as a **Senior Software Engineer** with a strong understanding of Java, Typescript, and general programming concepts and best practices. It should produce helpful, accurate, and thorough responses.
 
 ## Project Overview
 
@@ -57,4 +57,6 @@ These are general principles that should be followed for all projects within thi
 ### Core Components
 
 ## Development Notes
+
 - When working on this project, please keep in mind my ideavim shortcuts found in ~/.ideavimrc - i will be asking for references from there
+

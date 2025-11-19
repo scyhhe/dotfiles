@@ -6,7 +6,7 @@ I opted to not use mackup, and instead I'm making use of GNU stow for symlinking
 
 I recommend forking this repository to track and save your personal dotfiles configuration.
 
-#### `stow` usage
+## `stow` usage
 
 `stow` is used to easily get you up and running by symlinking all subfolders based on their folder structure relative to `$HOME` (by default `~/`).
 
@@ -39,7 +39,7 @@ I recommend doing a dry run first for whatever you're doing with `stow -vt <comm
 
 I have a helper script in [zshrc](./zsh/.zshrc) called `stowify`, which attempts to adopt a package in `~/.config/<package>` by creating the respective folder in `~/.dotfiles/<package>`, copy files over, and then executes a dry run to show the changes.
 
-#### Personal and Work separation
+## Personal and Work separation
 
 Since this is meant to be a dev/work machine setup, the `git/` and `ssh/` folders are specific to my use case - they include a global `.gitignore`, as well as separate configurations for personal and work git/ssh setups.
 
@@ -47,7 +47,7 @@ The [.github-personal](./git/.github-personal) file will be loaded only in speci
 
 Similarly, the ssh config in [github-personal.conf](./ssh/ssh/config.d/github-personal.conf) includes a 1password oriented config you can reference and plug in to your main `~/.ssh/config`, allowing you to use 1password stored SSH keys for your personal repositories - more info on how to do that is in that file itself. The reason for this simple - I already had my ssh keys setup "manually" for work, but wanted a clear separation for my personal keys. Therefore IdentityFile loading (ssh key files) are used for work, while 1password keys are for personal use.
 
-#### Additional info and Customization
+## Additional info and Customization
 
 [.macos](./.macos) includes MacOS specific configuration for system wide properties, such as key repeat rate, locale, wake on lid open, disabling certain animations and so on. You can read up a bit more here [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
 
@@ -55,7 +55,7 @@ Similarly, the ssh config in [github-personal.conf](./ssh/ssh/config.d/github-pe
 
 For more info and specifics, I recommend reading the original README below .
 
-#### Install
+## Install
 
 The install process is pretty straightforward and is mostly orchestrated through `fresh.sh`.
 
