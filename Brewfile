@@ -40,9 +40,13 @@ brew 'atuin'
 brew '1password-cli'
 brew 'lazygit'
 brew 'lazydocker'
+brew 'neofetch'
+brew 'tree'
+brew 'xan'
 
-# some things were replaced by Raycast
+# Casks 
 cask 'arc'
+cask 'firefox'
 cask 'obsidian'
 cask 'linearmouse'
 cask 'raycast'
@@ -50,22 +54,10 @@ cask 'aerospace'
 cask 'zed'
 cask 'ghostty'
 
-################
-
-# Canva
-# Some apps are managed by Kandji, so to avoid issues they will be commented out
-
-################
-brew "hivemind"
-brew "asdf"
-cask "google-cloud-sdk"
-brew "stern"
-brew "kubectx"
-
-# Apps
+# Work Apps
 cask '1password'
 cask 'caffeine'
-# pick one - would not recommend installing both at the same time 
+# pick one - would not recommend installing both podman and docker at the same time 
 #cask 'docker'
 cask 'podman'
 cask 'slack'
