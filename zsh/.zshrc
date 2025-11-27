@@ -19,7 +19,7 @@ export MNML_RPROMPT=('mnml_cwd 20')
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=""
+ZSH_THEME="minimal"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -88,6 +88,11 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH
 
+# Load private (gitignored) overrides if they exist
+if [ -f "$HOME/.zshrc.private" ]; then
+  source "$HOME/.zshrc.private"
+fi
+
 # ZSH integration with FZF
 source <(fzf --zsh)
 # Workaround for ALT-C 
@@ -104,6 +109,8 @@ export LANG=en_US.UTF-8
 #   export EDITOR='mvim'
 # fi
 
+export EDITOR='nvim'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -115,14 +122,47 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+
+# General Helpers 
+stowify() {
+  local pkg="$1"
+  if [[ -z "$pkg" ]]; then
+    echo "Usage: stowify <package>\n"
+    echo "Used to prepare config folders for usage with GNU stow"
+    echo "Pre-configured for files and folders inside ~/.config"
+    echo "Will create the  corresponding folder in ~/.dotfiles, move the package from ~/.config and execute a dry-run of stow <package>"
+    return 1
+  fi
+
+  mkdir -p ~/.dotfiles/"$pkg"/.config
+  mv ~/.config/"$pkg" ~/.dotfiles/"$pkg"/.config/
+  (cd ~/.dotfiles && stow -nvt ~ "$pkg")  # dry-run first for safety
+  echo "If dry-run looks good, run again without -n to apply."
+  echo 'cd ~/.dotfiles && stow -vt ~ "$pkg"'
+}
+
+###
 
 # pure setup
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
+#add postgresql@15 to path to access psql // also libpq for ruby deps
+path+=('/opt/homebrew/opt/postgresql@15/bin')
+path+=('/opt/homebrew/opt/libpq/bin')
+path+=("/opt/homebrew/opt/mysql-client/bin")
+path+=("$HOME/.local/bin")
+
+
 # zoxide setup
 eval "$(zoxide init zsh)"
-
+# atuin setup (disable-ctrl-r, that uses fzf)
+eval "$(atuin init zsh --disable-ctrl-r)"
+# 1password-cli autocomplete
+eval "$(op completion zsh)"; compdef _op op
 # Must be the last line in .zshrc
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

@@ -1,0 +1,372 @@
+
+" basic stuff
+set hlsearch
+set scrolloff=5
+set ignorecase smartcase
+set showmode
+set history=1000
+set incsearch
+set clipboard+=unnamed
+set relativenumber
+set ReplaceWithRegister
+set visualbell
+set idearefactormode=visual
+set showcmd
+set showmode
+set ideastatusicon=gray
+set virtualedit=onemore
+
+" extensions
+set surround
+set multiple-cursors
+set highlightedyank
+set NERDTree
+set argtextobj
+Plug 'justinmk/vim-sneak'
+set quickscope
+set commentary
+set anyobject
+set dial
+set mini-ai
+
+" set the various handlers
+sethandler <C-a> a:vim
+sethandler <C-b> a:vim
+sethandler <C-c> a:vim
+sethandler <C-d> a:vim
+sethandler <C-e> a:vim
+sethandler <C-f> a:vim
+sethandler <C-g> a:vim
+sethandler <C-h> a:vim
+sethandler <C-i> a:vim
+sethandler <C-j> a:ide
+sethandler <C-k> a:ide
+sethandler <C-l> a:vim
+sethandler <C-m> a:vim
+sethandler <C-n> a:vim
+sethandler <C-o> a:vim
+sethandler <C-p> a:vim
+sethandler <C-q> a:vim
+sethandler <C-r> a:vim
+sethandler <C-s> a:vim
+sethandler <C-t> a:vim
+sethandler <C-u> a:vim
+sethandler <C-v> a:vim
+sethandler <C-v> a:vim
+sethandler <C-w> a:vim
+sethandler <C-x> a:vim
+sethandler <C-y> a:vim
+sethandler <C-z> a:vim
+
+" WhichKey configuration (plugin is toggled by <leader>8)
+let g:WhichKey_FontSize = 14
+let g:WhichKey_PrefixColor = "#a403fe"
+let g:WhichKey_CommandColor = "#01ffff"
+let g:WhichKey_PrefixStyle = "bold"
+let g:WhichKey_KeyStyle = "italic"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKey_ShowTypedSequence = "true"
+
+" register leader
+let mapleader = " "
+
+nmap <leader>nn :nerdtree<cr>
+
+" after block yank and paste, move cursor to the end of operated text and don't override register
+vnoremap p "_dP`]
+nnoremap p p`]
+
+" motions
+nnoremap H ^
+nnoremap L $
+nnoremap W [w
+nnoremap B [b
+nnoremap E ]w
+
+" Y yank whole line by default
+vnoremap y ygv<Esc>$
+nnoremap Y y$
+
+" have x (removes single character) not go into the default registry
+nnoremap x "_x
+
+" make X an operator that removes without placing text in the default registry
+nmap X "_d
+nmap XX "_dd
+vmap X "_d
+vmap x "_d
+
+" don't yank to default register when changing something
+nnoremap c "xc
+xnoremap c "xc
+
+" change line, better use S for this.
+nmap cc 1S
+
+" copy Word
+nmap ,c yiw
+
+" select word
+nmap ,v viw
+
+" open search under cursor (Zed binding)
+vmap g/ <Action>(FindInPath)
+nmap g/ <Action>(FindInPath)
+
+" reselect last-pasted text
+nnoremap gp `[v`]
+
+" center screen when jumping to next match
+nnoremap n nzz
+nnoremap N Nzz
+vnoremap n nzz
+vnoremap N Nzz
+
+" center screen when moving up and down
+nnoremap <C-u> <C-u>zz
+nnoremap <C-o> <C-d>zz
+vnoremap <C-u> <C-u>zz
+vnoremap <C-o> <C-d>zz
+
+" easy window navigation
+:map <Tab> <Action>(NextTab)
+:map <S-Tab> <Action>(PreviousTab)
+
+" clear the search buffer when hitting return
+nnoremap <leader><cr> :nohlsearch<cr>
+
+" select whole file
+:map <Leader>aa ggVG
+
+" execute macro saved in 'q' register
+nnoremap qj @q
+
+" move lines up/down with alt
+" nnoremap <a-j> ma:m+1<cr>`a
+" nnoremap <a-k> ma:m-2<cr>`a
+
+" delete/change word or WORD using alt
+nnoremap <a-d> "_diw
+nnoremap <a-s-d> ]b[w"_d]w
+nnoremap <a-c> "_ciw
+nnoremap <a-s-c> ]b[w"_c]w
+
+" code refactoring
+:map <leader>rr <Action>(RenameElement)
+:map <leader>RR <Action>(Refactorings.QuickListPopupAction)
+:map <leader>sw <Action>(SurroundWith)
+:map <leader>oi <Action>(OptimizeImports)
+let g:WhichKeyDesc_rename_element = "<leader>rr Rename element"
+let g:WhichKeyDesc_refactors = "<leader>RR Refactorings"
+let g:WhichKeyDesc_surround_with = "<leader>sw Surround with"
+let g:WhichKeyDesc_optimize_import = "<leader>oi Optimize import"
+let g:WhichKeyDesc_file_overview = "<leader>oo File structure overview"
+
+" stuff
+:map <leader>er <Action>(QuickJavaDoc)
+:map <leader>ee <Action>(ShowErrorDescription)
+:map <leader>ep <Action>(ParameterInfo)
+:map <leader>hh <Action>(QuickImplementations)
+:map <leader>hj <Action>(ShowHoverInfo)
+let g:WhichKeyDesc_quick_java_doc = "<leader>er Quick docs"
+let g:WhichKeyDesc_show_error_description = "<leader>ee Show error description"
+let g:WhichKeyDesc_parameter_info = "<leader>ep Parameter info/signature"
+let g:WhichKeyDesc_quick_implementations = "<leader>hh Quick implementations"
+let g:WhichKeyDesc_show_info = "<leader>hj Show info"
+
+" breakpoints (<leader>b)
+:map <leader>bb <Action>(ToggleLineBreakpoint)
+:map <leader>bw <Action>(ViewBreakpoints)
+:map <leader>ba <Action>(Debugger.RemoveAllBreakpoints)
+let g:WhichKeyDesc_toggle_line_breakpoint = "<leader>bb Toggle line breakpoint"
+let g:WhichKeyDesc_view_breakpoints = "<leader>bw View breakpoints"
+let g:WhichKeyDesc_remove_all_breakpoints = "<leader>ba Remove all breakpoints"
+
+" commenting
+xmap <Leader>/ <Action>(CommentByLineComment)<ESC><ESC>
+nmap <Leader>/ <Action>(CommentByLineComment)k
+
+" ace
+:map ff <Action>(AceAction)
+:map fv <Action>(AceTargetAction)
+:map fl <Action>(AceLineAction)
+let g:WhichKeyDesc_ace_action = "ff Ace action"
+let g:WhichKeyDesc_ace_target_action = "fv Ace target action"
+let g:WhichKeyDesc_ace_line_action = "fl Ace line action"
+
+" various functionality
+:map <leader>hu <Action>(HighlightUsagesInFile)
+:map <leader>rl <Action>(RecentLocations)
+:map gy <Action>(RecentChangedFiles)
+:map <leader>sh <Action>(LocalHistory.ShowHistory)
+" :map <leader>m <Action>(ShowIntentionActions)
+:map <leader>ca <Action>(ShowIntentionActions)
+:map <leader>oo <Action>(FileStructurePopup)
+:map <leader>pw <Action>(SelectInProjectView)
+:map <leader>rt <Action>(RunContextGroup)
+:map gh <Action>(GotoDeclaration)
+:map gt <Action>(GotoTest)
+:map <leader>so <Action>(SelectAllOccurrences)
+let g:WhichKeyDesc_highlight_usages_in_file = "<leader>hu Highlight usages in file"
+let g:WhichKeyDesc_recent_locations = "<leader>rl Recent locations"
+let g:WhichKeyDesc_recent_changed_files = "gy Recent changed files"
+let g:WhichKeyDesc_show_history = "<leader>sh Show history"
+let g:WhichKeyDesc_show_intent_actions = "<leader>ca Show intent actions"
+let g:WhichKeyDesc_file_structure_popup = "<leader>o File structure popup"
+let g:WhichKeyDesc_select_in_project_view = "<leader>pw Select in project view"
+let g:WhichKeyDesc_run_context_group = "<leader>rt Run context group"
+let g:WhichKeyDesc_goto_declaration = "gh Goto declaration"
+let g:WhichKeyDesc_goto_test = "gt Goto Test file"
+let g:WhichKeyDesc_select_all_occurrences = "<leader>so Select all occurrences"
+
+xnoremap < <gv
+xnoremap > >gv
+
+" copy whole file
+nmap <C-;> ggVG"+y
+
+" code navigation
+:map [[ <Action>(MethodUp)
+:map ]] <Action>(MethodDown)
+:map g[ <Action>(GotoNextError)
+:map g] <Action>(GotoPreviousError)
+:map <leader>k <Action>(JumpToLastChange)
+:map <leader>K <Action>(JumpToNextChange)
+:map gn <Action>(GotoNextElementUnderCaretUsage)
+:map gN <Action>(GotoPrevElementUnderCaretUsage)
+let g:WhichKeyDesc_goto_next_error = "g] Goto next error"
+let g:WhichKeyDesc_goto_previous_error = "g[ Goto previous error"
+let g:WhichKeyDesc_jump_to_last_change = "<leader>k Jump to last change"
+let g:WhichKeyDesc_jump_to_next_change = "<leader>K Jump to next change"
+let g:WhichKeyDesc_goto_next_element_under_caret_usage = "gn Goto next element under caret usage"
+let g:WhichKeyDesc_goto_prev_element_under_caret_usage = "gN Goto previous element under caret usage"
+
+" splits
+:map <Leader>sv <Action>(SplitVertically)
+:map <Leader>sn <Action>(PrevSplitter)
+
+" built-in navigation to navigated items works better
+:nmap <c-o> <Action>(Back)
+:nmap <c-i> <Action>(Forward)
+
+" but preserve ideavim defaults
+:map g<c-o> <c-o>
+:map g<c-i> <c-i>
+
+" close stuff
+:map <leader>q <Action>(CloseEditor)
+:map <leader>Q <Action>(CloseAllEditors)
+:map <leader>w <Action>(CloseAllEditorsButActive)
+
+" reactivate some IDEA shortcuts
+:map <c-n> <Action>(SearchEverywhere)
+:map <leader>ff <Action>(GotoFile)
+:map <c-b> <Action>(ShowUsages)
+:map <c-s> <Action>(SaveAll)
+:map <c-c> <Action>(GotoImplementation)
+
+" run stuff
+:map <leader>cg <Action>(ChooseRunConfiguration)
+:map <leader>dg <Action>(ChooseDebugConfiguration)
+:map <leader>1 <Action>(Run)
+:map <leader>2 <Action>(Debug)
+:map <leader>0 <Action>(Stop)
+let g:WhichKeyDesc_choose_run_configuration = "<leader>cg Choose run configuration"
+let g:WhichKeyDesc_choose_debug_configuration = "<leader>dg Choose debug configuration"
+let g:WhichKeyDesc_run = "<leader>1 Run"
+
+let g:WhichKeyDesc_stop = "<leader>0 Stop"
+
+" git operations
+:map <leader>gc <Action>(Vcs.Show.Local.Changes)
+:map <leader>gd <Action>(Compare.SameVersion)
+:map <leader>gu <Action>(Vcs.RollbackChangedLines)
+:map <leader>gs <Action>(EditSource)
+:map <leader>gb <Action>(Annotate)
+:map <leader>gob <Action>(Github.Open.In.Browser)
+let g:WhichKeyDesc_vcs_local_changes = "<leader>gc Git local changes"
+let g:WhichKeyDesc_compare_same_version = "<leader>gd Git diff current file"
+let g:WhichKeyDesc_rollback_changeAnnotated_lines = "<leader>gu Git undo/revert changes"
+let g:WhichKeyDesc_git_blame= "<leader>gb Git blame / annotate"
+let g:WhichKeyDesc_open_in_github = "<leader>gob GitHub open file/line in browser"
+
+" other things
+:map <leader>ns <Action>(NewScratchBuffer)
+:map <leader>nd <Action>(Scratch.ChangeLanguage)
+:map <leader>an <Action>(Annotate)
+:map <leader>tw <Action>(ActivateProjectToolWindow)
+nnoremap <leader>mc :s /<<<<<<<\\|=======\\|>>>>>>><CR>
+let g:WhichKeyDesc_new_scratch_file = "<leader>ns New scratch file"
+let g:WhichKeyDesc_annotate = "<leader>an Annotate"
+let g:WhichKeyDesc_activate_project_window = "<leader>tw Activate project tool window"
+
+" toggle line number relative
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber number
+  endif
+endfunction
+
+nnoremap <leader><Tab> :call NumberToggle()<cr>
+let g:WhichKeyDesc_toggle_line_numbers = "<leader><Tab> Toggle line numbers"
+
+" harpoonIJ
+map <leader>hs <Action>(ShowHarpoon)
+map <leader>ha <Action>(AddToHarpoon)
+map <leader>H1 <Action>(SetHarpoon1)
+map <leader>H2 <Action>(SetHarpoon2)
+map <leader>H3 <Action>(SetHarpoon3)
+map <leader>H4 <Action>(SetHarpoon4)
+map <leader>H5 <Action>(SetHarpoon5)
+map <leader>h1 <Action>(GotoHarpoon1)
+map <leader>h2 <Action>(GotoHarpoon2)
+map <leader>h3 <Action>(GotoHarpoon3)
+map <leader>h4 <Action>(GotoHarpoon4)
+map <leader>h5 <Action>(GotoHarpoon5)
+
+" toggle which-key plugin
+let s:whichKeyEnabled = 0
+function! WhichKeyToggle()
+  if s:whichKeyEnabled
+    set which-key!
+    set notimeout!
+    let s:whichKeyEnabled = 0
+  else
+    set which-key
+    set notimeout
+    let s:whichKeyEnabled = 1
+  endif
+endfunction
+
+nnoremap <leader>8 :call WhichKeyToggle()<cr>
+let g:WhichKeyDesc_toggle_which_key = "<leader>8 Toggle WhichKey"
+
+" source
+:map <leader>9 :source ~/.ideavimrc<CR>
+let g:WhichKeyDesc_reload_vim_rc = "<leader>9 Reload VimRc"
+
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+map ]d <Action>(NextDiff)
+map [d <Action>(PreviousDiff)
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
+nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
+
+nmap <leader>rm <Action>(SafeDelete)
+nmap <leader>rn <Action>(RenameFile)
+nmap <leader>md <Action>(NewDir)
+
+" duplicate line/selection
+:map <leader>dp <Action>(EditorDuplicate)
+let g:WhichKeyDesc_duplicate_line = "<leader>dp Duplicate line/selection"
+
+" dial config
+nnoremap <C-a> :DialIncrement<cr>
+nnoremap <C-x> :DialDecrement<cr>

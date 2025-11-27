@@ -1,16 +1,12 @@
 # Taps
 tap 'homebrew/bundle'
 
-# Binaries
+# Binaries, dependencies and system package updates
 brew 'bash' # Latest Bash version
-brew 'bat'
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'ffmpeg'
-brew 'gh'
 brew 'git'
 brew 'grep'
-brew 'httpie'
-brew 'jq' 
 brew 'mackup'
 brew 'mas' # Mac App Store manager
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
@@ -22,35 +18,51 @@ brew 'yarn'
 
 # Personal
 brew 'neovim'
+brew 'bat'
 brew 'zsh'
 brew 'zsh-autosuggestions'
 brew 'zsh-syntax-highlighting'
 brew 'fd'
+brew 'jq' 
 brew 'zoxide'
 brew 'yazi'
 brew 'fzf'
 brew 'ripgrep'
 brew 'pure'
+brew 'eza'
+brew 'htop'
+brew 'gh'
+brew 'stow'
+brew 'tldr'
+brew 'xh'
+brew 'httpie'
+brew 'atuin'
+brew '1password-cli'
+brew 'lazygit'
+brew 'lazydocker'
+brew 'neofetch'
+brew 'tree'
+brew 'xan'
 
-cask 'iterm2'
-cask 'alt-tab'
-cask 'maccy'
-cask 'alfred'
-cask 'obsidian'
-cask 'bruno'
+# Casks 
 cask 'arc'
+cask 'firefox'
+cask 'obsidian'
+cask 'linearmouse'
+cask 'raycast'
+cask 'aerospace'
+cask 'zed'
+cask 'ghostty'
 
-# Apps
+# Work Apps
 cask '1password'
 cask 'caffeine'
-cask 'docker'
-cask 'github'
+# pick one - would not recommend installing both podman and docker at the same time 
+#cask 'docker'
+cask 'podman'
 cask 'slack'
 cask 'tableplus'
-cask 'the-unarchiver'
 cask 'transmit'
-# cask 'tuple'
-cask 'visual-studio-code'
 cask 'zoom'
 
 # Fonts
@@ -62,6 +74,7 @@ cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
+cask 'font-jetbrains-mono-nerd-font'
 
 # Mac App Store - left as an example
 # mas 'Byword', id: 420212497

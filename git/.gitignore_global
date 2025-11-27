@@ -38,3 +38,15 @@ Thumbs.db
 .idea/
 .vscode
 .vagrant/
+
+
+# Dev
+vendor/bundle/*
+
+# Project specific
+
+**/.settings/*
+**/.project
+**/.classpath
+**/.factorypath
+

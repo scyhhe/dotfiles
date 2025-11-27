@@ -1,0 +1,31 @@
+# Ignore Git metadata and misc repo files
+/.git
+/.github
+/.gitignore
+/.gitmodules
+
+# Docs and misc top-level files
+/LICENSE(\..*)?$          # matches LICENSE and LICENSE.md
+/README(\..*)?$           # matches README and README.md
+/raycast-.*\.rayconfig$   # matches your raycast export(s)
+
+# Scripts and installers (not dotfiles)
+/clone.sh
+/fresh.sh
+/ssh.sh
+
+# Top-level files that shouldn't be linked to $HOME
+/aliases.zsh
+/path.zsh
+/minimal.zsh-theme
+/Brewfile
+/.macos
+
+# Folders you don't want stowed
+/themes
+/art
+/other
+/plugins
+
+# Ignore this file itself
+/.stow-local-ignore

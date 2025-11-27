@@ -1,0 +1,183 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "ssh_connections": [
+    {
+      "host": "coder.vankobox",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/coder"]
+        }
+      ]
+    }
+  ],
+  "agent": {
+    "default_model": {
+      "provider": "amazon-bedrock",
+      "model": "claude-sonnet-4-5"
+    },
+    "model_parameters": []
+  },
+  "agent_servers": {
+    "claude": {
+      "ignore_system_version": false
+      // "command": "claude",
+      // "args": [],
+      // "env": {}
+    },
+    "CC Bedrock": {
+      "command": "otter",
+      "args": ["claude-code"],
+      "env": {}
+    }
+  },
+  "vim_mode": true,
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
+  "buffer_font_family": "CaskaydiaMono Nerd Font Mono",
+  // "agent": {
+  //   "default_profile": "write",
+  //   "default_model": {
+  //     "provider": "openrouter",
+  //     "model": "qwen/qwen3-coder"
+  //   }
+  // },
+  "use_system_window_tabs": true,
+  "rounded_selection": true,
+  "lsp_document_colors": "inlay",
+  "inline_code_actions": false,
+  "minimap": {
+    "show": "never"
+  },
+  "search": {
+    "button": false,
+    "case_sensitive": true
+  },
+  "project_panel": {
+    "starts_open": true,
+    "sticky_scroll": true,
+    "dock": "right"
+  },
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    }
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false,
+    "selections_menu": false
+  },
+  "features": {
+    // "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
+  },
+  "hide_mouse": "on_typing_and_movement",
+  // Will be triggered manually with `ctrl-x ctrl-c`.
+  // "show_edit_predictions": false,
+  "inlay_hints": {
+    "enabled": false
+  },
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "cursor_blink": false,
+  "relative_line_numbers": true,
+  "tab_bar": {
+    "show": true
+  },
+  "scrollbar": {
+    "show": "auto"
+  },
+  // Rainbow indentation
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "tabs": {
+    "show_diagnostics": "all",
+    "file_icons": true,
+    "git_status": true
+  },
+  "preview_tabs": {
+    "enabled": false
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  "status_bar": {
+    "active_language_button": false,
+    "cursor_position_button": false
+  },
+  "vim": {
+    "use_system_clipboard": "never"
+  },
+  "languages": {},
+  "wrap_guides": [90],
+  "show_wrap_guides": true,
+  "language_models": {
+    "bedrock": {
+      "authentication_method": "named_profile",
+      "profile": "dev_app-editor_design-generation"
+    }
+  },
+  "lsp": {
+    "jdtls": {
+      "initialization_options": {
+        "settings": {
+          "java": {
+            "home": "/usr/bin/java",
+            "configuration": {
+              // "runtimes": [
+              //   {
+              //     "path": "/usr/bin/java",
+              //     "name": "JavaSE_17"
+              //   }
+              // ]
+            }
+          }
+        }
+      }
+    }
+  }
+  // "profiles": {
+  //   "YouTube": {
+  //     "show_wrap_guides": false,
+  //     "show_edit_predictions": false,
+  //     "ui_font_size": 24,
+  //     "buffer_font_size": 24,
+  //     "preferred_line_length": 75,
+  //     "soft_wrap": "preferred_line_length",
+  //     "format_on_save": "off",
+  //     "scrollbar": {
+  //       "show": "never"
+  //     },
+  //     "git": {
+  //       "git_gutter": "hide",
+  //       "inline_blame": {
+  //         "enabled": false
+  //       }
+  //     }
+  //   }
+}
