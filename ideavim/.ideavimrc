@@ -282,9 +282,13 @@ let g:WhichKeyDesc_stop = "<leader>0 Stop"
 :map <leader>gd <Action>(Compare.SameVersion)
 :map <leader>gu <Action>(Vcs.RollbackChangedLines)
 :map <leader>gs <Action>(EditSource)
+:map <leader>gb <Action>(Annotate)
+:map <leader>gob <Action>(Github.Open.In.Browser)
 let g:WhichKeyDesc_vcs_local_changes = "<leader>gc Git local changes"
 let g:WhichKeyDesc_compare_same_version = "<leader>gd Git diff current file"
-let g:WhichKeyDesc_rollback_changed_lines = "<leader>gu Git undo/revert changes"
+let g:WhichKeyDesc_rollback_changeAnnotated_lines = "<leader>gu Git undo/revert changes"
+let g:WhichKeyDesc_git_blame= "<leader>gb Git blame / annotate"
+let g:WhichKeyDesc_open_in_github = "<leader>gob GitHub open file/line in browser"
 
 " other things
 :map <leader>ns <Action>(NewScratchBuffer)
