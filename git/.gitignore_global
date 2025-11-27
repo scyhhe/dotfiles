@@ -43,7 +43,7 @@ Thumbs.db
 # Dev
 vendor/bundle/*
 
-# Canva/canva specific
+# Project specific
 
 **/.settings/*
 **/.project
