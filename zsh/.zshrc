@@ -88,6 +88,11 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH
 
+# Load private (gitignored) overrides if they exist
+if [ -f "$HOME/.zshrc.private" ]; then
+  source "$HOME/.zshrc.private"
+fi
+
 # ZSH integration with FZF
 source <(fzf --zsh)
 # Workaround for ALT-C 
@@ -119,39 +124,6 @@ export EDITOR='nvim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-# k8s work stuff - move out in separate shell setup
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-alias kn="kubectl config set-context --current --namespace"
-
-function kl() {
-  echo "Connecting to running pod for workload '$1'"
-  kubectl get pod --selector="app=$1"
-}
-
-function kc() {
-  echo "Connecting to running pod for workload '$1'"
-  kubectl exec -it $(kubectl get pod --selector="app=$1" --output jsonpath='{.items[0].metadata.name}') -- $2
-}
-##########
-
-
-### Canva/canva specific
-
-alias cookie-gen='bazel run //traffic/gateway/tools/auth_token_minter -- --username alice'
-
-function regen_protos() {
-  echo "regenerating for folder/namespace '$1'"
-  cd dev/canva
-  ./bin/regen_protos.sh --include $1
-}
-
-alias owners="./tools/code_review/ownership reviewers"
-alias local_stack="./production/local/bin/init_local_stack.sh var_canva s3"
-# alias cookie-gen-brand='bazel run //traffic/gateway/tools/auth_token_minter -- --user $0 --brand $1'
-
-###
 
 # General Helpers 
 stowify() {
@@ -183,22 +155,7 @@ path+=('/opt/homebrew/opt/postgresql@15/bin')
 path+=('/opt/homebrew/opt/libpq/bin')
 path+=("/opt/homebrew/opt/mysql-client/bin")
 path+=("$HOME/.local/bin")
-# add asdf shims to Path
-path+=("opt/homebrew/opt/asdf/bin")
-path+=("opt/homebrew/opt/asdf")
-# asdf specific stuff
-export ASDF_DATA_DIR="/Users/ivantoporkov/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
-# needed to fix apple silicon macs when forking a thread pool (issues in running ruby puma server locally)
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export DISABLE_SPRING=true
 
-# Claude Code for ACP 
-export AWS_PROFILE="dev_app-editor_design-generation"
-export CLAUDE_CODE_USE_BEDROCK="1"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="us.anthropic.claude-sonnet-4-5-20250929-v1:0"
-export ANTHROPIC_MODEL="us.anthropic.claude-sonnet-4-5-20250929-v1:0"
-export ZED_AWS_PROFILE="dev_app-editor_design-generation"
 
 # zoxide setup
 eval "$(zoxide init zsh)"
@@ -209,5 +166,3 @@ eval "$(op completion zsh)"; compdef _op op
 # Must be the last line in .zshrc
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# License Vault URL for activation of Jetbrains products at Canva
-export JETBRAINS_LICENSE_SERVER=https://canva.fls.jetbrains.com/

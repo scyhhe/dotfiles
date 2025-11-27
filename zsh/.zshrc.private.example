@@ -1,0 +1,4 @@
+# ~/.zshrc.private.example
+# Copy this to ~/.zshrc.private (or stowed version) to add private, machine-specific config.
+# This file is safe to commit. The real .zshrc.private should be gitignored.
+
