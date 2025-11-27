@@ -47,6 +47,8 @@ The [.github-personal](./git/.github-personal) file will be loaded only in speci
 
 Similarly, the ssh config in [github-personal.conf](./ssh/ssh/config.d/github-personal.conf) includes a 1password oriented config you can reference and plug in to your main `~/.ssh/config`, allowing you to use 1password stored SSH keys for your personal repositories - more info on how to do that is in that file itself. The reason for this simple - I already had my ssh keys setup "manually" for work, but wanted a clear separation for my personal keys. Therefore IdentityFile loading (ssh key files) are used for work, while 1password keys are for personal use.
 
+Additionally, you can use a `zsh/zshrc.private` file for private or sensitive info - that is git ignored by default and is sourced from within our `.zshrc` automatically! Check out the example at [zsh/.zshrc.private.example](./zsh/.zshrc.private.example)
+
 ## Additional info and Customization
 
 [.macos](./.macos) includes MacOS specific configuration for system wide properties, such as key repeat rate, locale, wake on lid open, disabling certain animations and so on. You can read up a bit more here [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
