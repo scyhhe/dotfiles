@@ -125,6 +125,7 @@ vnoremap N Nzz
 " center screen when moving up and down
 nnoremap <C-u> <C-u>zz
 nnoremap <C-o> <C-d>zz
+nnoremap <C-e> <C-u>zz
 vnoremap <C-u> <C-u>zz
 vnoremap <C-o> <C-d>zz
 
@@ -178,9 +179,15 @@ let g:WhichKeyDesc_show_info = "<leader>hj Show info"
 :map <leader>bb <Action>(ToggleLineBreakpoint)
 :map <leader>bw <Action>(ViewBreakpoints)
 :map <leader>ba <Action>(Debugger.RemoveAllBreakpoints)
+:map <leader>bn <Action>(StepOver)
+:map <leader>br <Action>(Resume)
+:map <leader>bs <Action>(Stop)
 let g:WhichKeyDesc_toggle_line_breakpoint = "<leader>bb Toggle line breakpoint"
 let g:WhichKeyDesc_view_breakpoints = "<leader>bw View breakpoints"
 let g:WhichKeyDesc_remove_all_breakpoints = "<leader>ba Remove all breakpoints"
+let g:WhichKeyDesc_step_over = "<leader>bn Debug - Step over"
+let g:WhichKeyDesc_resume = "<leader>br Debug - Resume"
+let g:WhichKeyDesc_stop = "<leader>bs Debug - Stop"
 
 " commenting
 xmap <Leader>/ <Action>(CommentByLineComment)<ESC><ESC>
@@ -199,25 +206,35 @@ let g:WhichKeyDesc_ace_line_action = "fl Ace line action"
 :map <leader>rl <Action>(RecentLocations)
 :map gy <Action>(RecentChangedFiles)
 :map <leader>sh <Action>(LocalHistory.ShowHistory)
-" :map <leader>m <Action>(ShowIntentionActions)
 :map <leader>ca <Action>(ShowIntentionActions)
+:map <leader>cc <Action>(com.anthropic.code.plugin.actions.OpenClaudeInTerminalAction)
+:map <leader>cs <Action>(com.anthropic.code.plugin.actions.SendToClaudeAction)
+:map <leader>cn <Action>(Terminal.NextTab)
+
 :map <leader>oo <Action>(FileStructurePopup)
 :map <leader>pw <Action>(SelectInProjectView)
 :map <leader>rt <Action>(RunContextGroup)
 :map gh <Action>(GotoDeclaration)
 :map gt <Action>(GotoTest)
+:map <leader>bf <Action>(Bazel.JumpToBuildFile)
+:map <leader>cp <Action>(CopyReferencePopupGroup)
 :map <leader>so <Action>(SelectAllOccurrences)
 let g:WhichKeyDesc_highlight_usages_in_file = "<leader>hu Highlight usages in file"
 let g:WhichKeyDesc_recent_locations = "<leader>rl Recent locations"
 let g:WhichKeyDesc_recent_changed_files = "gy Recent changed files"
 let g:WhichKeyDesc_show_history = "<leader>sh Show history"
 let g:WhichKeyDesc_show_intent_actions = "<leader>ca Show intent actions"
+let g:WhichKeyDesc_open_claude_code = "<leader>cc Open Claude Code"
+let g:WhichKeyDesc_open_claude_code = "<leader>cs Send snippet to Claude Code"
 let g:WhichKeyDesc_file_structure_popup = "<leader>o File structure popup"
 let g:WhichKeyDesc_select_in_project_view = "<leader>pw Select in project view"
 let g:WhichKeyDesc_run_context_group = "<leader>rt Run context group"
 let g:WhichKeyDesc_goto_declaration = "gh Goto declaration"
 let g:WhichKeyDesc_goto_test = "gt Goto Test file"
 let g:WhichKeyDesc_select_all_occurrences = "<leader>so Select all occurrences"
+let g:WhichKeyDesc_open_bazel_build_file = "<leader>bf Open Bazel BUILD file"
+let g:WhichKeyDesc_copy_file_path_popup = "<leader>cp Copy path / reference popup"
+
 
 xnoremap < <gv
 xnoremap > >gv
@@ -244,6 +261,7 @@ let g:WhichKeyDesc_goto_prev_element_under_caret_usage = "gN Goto previous eleme
 " splits
 :map <Leader>sv <Action>(SplitVertically)
 :map <Leader>sn <Action>(PrevSplitter)
+:map <Leader>sm <Action>(MoveEditorToOppositeTabGroup)
 
 " built-in navigation to navigated items works better
 :nmap <c-o> <Action>(Back)
