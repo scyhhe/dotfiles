@@ -143,6 +143,7 @@ stowify() {
   echo 'cd ~/.dotfiles && stow -vt ~ "$pkg"'
 }
 
+mask() printf '%s\n' ${(l[$#1][*])1: -3}
 ###
 
 # pure setup

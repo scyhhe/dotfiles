@@ -132,7 +132,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-o = 'exec-and-forget open -a /Applications/Obsidian.app'
     alt-z = 'exec-and-forget open -a /Applications/zoom.us.app'
     alt-c = 'exec-and-forget open -a /Applications/Canva.app'
-    alt-x = 'exec-and-forget open -a /Users/ivantoporkov/Applications/IntelliJ\ IDEA\ Ultimate.app'
+    alt-x = 'exec-and-forget open -a /Users/ivantoporkov/Applications/IntelliJ\ IDEA.app'
     alt-m = 'exec-and-forget open -a /Applications/Firefox.app'
     cmd-esc = 'exec-and-forget open -a /Applications/Ghostty.app'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
