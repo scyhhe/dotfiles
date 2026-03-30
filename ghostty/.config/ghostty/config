@@ -1,6 +1,12 @@
 # keybinds 
 keybind = global:opt+escape=toggle_quick_terminal
 keybind = shift+enter=text:\n
+keybind = cmd+shift+up=resize_split:up,10
+keybind = cmd+shift+down=resize_split:down,10
+keybind = cmd+shift+left=resize_split:left,10
+keybind = cmd+shift+right=resize_split:right,10
+keybind = cmd+shift+0=equalize_splits
+
 
 # general
 shell-integration = zsh
