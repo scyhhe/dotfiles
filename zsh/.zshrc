@@ -2,18 +2,13 @@
 export DOTFILES=$HOME/.dotfiles
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Path to brew
-export PATH="/opt/homebrew/bin:$PATH"
-
-# Minimal - Theme Settings
-export MNML_INSERT_CHAR="$"
-export MNML_PROMPT=(mnml_git mnml_keymap)
-export MNML_RPROMPT=('mnml_cwd 20')
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -81,7 +76,7 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -151,19 +146,10 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
-#add postgresql@15 to path to access psql // also libpq for ruby deps
-path+=('/opt/homebrew/opt/postgresql@15/bin')
-path+=('/opt/homebrew/opt/libpq/bin')
-path+=("/opt/homebrew/opt/mysql-client/bin")
-path+=("$HOME/.local/bin")
-
-
 # zoxide setup
 eval "$(zoxide init zsh)"
 # atuin setup (disable-ctrl-r, that uses fzf)
 eval "$(atuin init zsh --disable-ctrl-r)"
-# 1password-cli autocomplete
-eval "$(op completion zsh)"; compdef _op op
 # Must be the last line in .zshrc
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
