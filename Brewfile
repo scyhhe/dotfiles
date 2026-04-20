@@ -51,6 +51,7 @@ cask 'obsidian'
 cask 'linearmouse'
 cask 'raycast'
 cask 'aerospace'
+cask 'nikitabobko/tap/aerospace'
 cask 'zed'
 cask 'ghostty'
 
