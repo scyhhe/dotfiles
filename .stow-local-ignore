@@ -22,10 +22,10 @@
 /.macos
 
 # Folders you don't want stowed
-/themes
-/art
-/other
-/plugins
+^/themes
+^/art
+^/other
+^/plugins
 
 # Ignore this file itself
 /.stow-local-ignore

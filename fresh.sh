@@ -20,14 +20,13 @@ rm -rf $HOME/.zshrc
 # ln -sw $HOME/.dotfiles/.zshrc $HOME/.zshrc <- replaced by stow a bit further down
 
 # Add stow to instantiate all symlinks - uses .stow-local-ignore to filter out files and folders
-# Specifically placed BEFORE existsalling anything via brew to avoid conflicts when symlinking
-stow -vR --target="$HOME" .
+# Specifically placed BEFORE installing anything via brew to avoid conflicts when symlinking
+stow -vR --target="$HOME" */
 
 # Update Homebrew recipes
 brew update
 
 # Install all our dependencies with bundle (See Brewfile)
-brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
 # Create a projects directories
@@ -41,4 +40,4 @@ mkdir $HOME/Work
 source ./.macos
 
 # (optional) restow if any packages wrote defaults
-stow -vR --target="$HOME" .
+stow -vR --target="$HOME" */

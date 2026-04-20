@@ -10,16 +10,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # Path to brew
 export PATH="/opt/homebrew/bin:$PATH"
 
-# Minimal - Theme Settings
-export MNML_INSERT_CHAR="$"
-export MNML_PROMPT=(mnml_git mnml_keymap)
-export MNML_RPROMPT=('mnml_cwd 20')
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="minimal"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,7 +76,7 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -150,6 +145,8 @@ mask() printf '%s\n' ${(l[$#1][*])1: -3}
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
+zstyle ':prompt:pure:execution_time' show threshold
+zstyle ':prompt:pure:execution_time:threshold' seconds 3
 
 #add postgresql@15 to path to access psql // also libpq for ruby deps
 path+=('/opt/homebrew/opt/postgresql@15/bin')
@@ -164,6 +161,8 @@ eval "$(zoxide init zsh)"
 eval "$(atuin init zsh --disable-ctrl-r)"
 # 1password-cli autocomplete
 eval "$(op completion zsh)"; compdef _op op
+# workmux completions
+eval "$(workmux completions zsh)"
 # Must be the last line in .zshrc
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
