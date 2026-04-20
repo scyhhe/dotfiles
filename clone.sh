@@ -4,13 +4,18 @@ echo "Cloning repositories..."
 
 echo "Installing lazyvim"
 # required
-mv ~/.config/nvim{,.bak}
+#mv ~/.config/nvim{,.bak}
 
 # optional but recommended
-mv ~/.local/share/nvim{,.bak}
-mv ~/.local/state/nvim{,.bak}
-mv ~/.cache/nvim{,.bak}
+#mv ~/.local/share/nvim{,.bak}
+#mv ~/.local/state/nvim{,.bak}
+#mv ~/.cache/nvim{,.bak}
 git clone https://github.com/LazyVim/starter ~/.config/nvim
-rm -rf ~/.config/nvim/.git
+# rm -rf ~/.config/nvim/.git
 
 echo "lazyvim installed"
+
+echo "Installing tpm for tmux"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "Cloned tpm under ~/.tmux/plugins/tpm"

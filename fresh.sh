@@ -15,8 +15,11 @@ if test ! $(which brew); then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+brew install stow
+
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
+rm -rf $HOME/.gitconfig
 # ln -sw $HOME/.dotfiles/.zshrc $HOME/.zshrc <- replaced by stow a bit further down
 
 # Add stow to instantiate all symlinks - uses .stow-local-ignore to filter out files and folders

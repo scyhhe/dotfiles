@@ -12,10 +12,6 @@ brew 'mas' # Mac App Store manager
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'svn' # Needed to install fonts
 
-# Development
-brew 'imagemagick'
-brew 'yarn'
-
 # Personal
 brew 'neovim'
 brew 'bat'
@@ -37,7 +33,6 @@ brew 'tldr'
 brew 'xh'
 brew 'httpie'
 brew 'atuin'
-brew '1password-cli'
 brew 'lazygit'
 brew 'lazydocker'
 brew 'neofetch'
@@ -53,27 +48,21 @@ cask 'raycast'
 cask 'nikitabobko/tap/aerospace'
 cask 'zed'
 cask 'ghostty'
+cask '1password-cli'
 
 # Work Apps
 cask '1password'
 cask 'caffeine'
 # pick one - would not recommend installing both podman and docker at the same time 
 #cask 'docker'
-cask 'podman'
+cask 'podman-desktop'
 cask 'slack'
 cask 'tableplus'
 cask 'transmit'
 cask 'zoom'
 
 # Fonts
-cask 'font-lato'
 cask 'font-caskaydia-mono-nerd-font'
-cask 'font-open-sans'
-cask 'font-roboto'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
 cask 'font-jetbrains-mono-nerd-font'
 
 # Mac App Store - left as an example
