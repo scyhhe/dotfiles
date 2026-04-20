@@ -1,0 +1,15 @@
+agent: claude
+merge_strategy: rebase
+nerdfont: true
+window_prefix: "wm-"
+
+panes:
+  - command: claude
+    focus: true
+  - split: vertical
+    percentage: 35
+
+status_icons:
+  working: "🤖"
+  waiting: "💬"
+  done: "✅"

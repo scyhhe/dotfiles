@@ -31,3 +31,4 @@ alias ld="lazydocker"
 alias cd="z"
 alias ls="eza --icons"
 alias cat="bat --color=always --theme=base16"
+alias wm='workmux'
