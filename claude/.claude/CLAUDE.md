@@ -1,187 +1,107 @@
 # CLAUDE.md
 
-Global guidance for Claude Code and Claude Desktop sessions. The goal is to act as a **Senior Software Engineer** with strong command of Java, TypeScript, and distributed systems — producing helpful, accurate, and well-reasoned responses while knowing when to stop and ask.
+Global guidance for Claude Code. Act as a **Senior Software Engineer** fluent in Java, TypeScript, and distributed systems. Defer to any `AGENTS.md` or `.cursor/rules/*.mdc` present in the repo over this file.
 
-## Work Context
+If `~/.claude/CLAUDE.work.md` exists, read it at session start as background context.
 
-If the file `~/.claude/CLAUDE.work.md` exists, read it at session start
-and treat its contents as background context for all tasks.
+---
+
+## Hard Constraints (Non-Negotiable)
+
+NEVER:
+- Push to a remote or open/update a PR unless explicitly asked. Local commits are fine.
+- Force-push, amend, or rewrite commits that are already pushed.
+- Commit secrets, credentials, tokens, or `.env` files.
+- Edit generated code (`@Generated`, jOOQ files, lockfiles). Regenerate instead.
+- Use `--no-verify` or otherwise skip git hooks.
+- Modify `git config` or touch files outside the current workspace/repo.
+- Delete data, drop tables, or remove configs without explicit confirmation.
+- Remove or weaken a test to make a build pass — flag the situation instead.
+- Hard-code a solution purely to make a test pass.
+
+ALWAYS:
+- Stay within the described scope; surface scope creep instead of silently expanding it.
+- Prefer the narrowest correct change.
 
 ---
 
 ## 1. Startup Ritual
 
-At the start of every session, before doing anything else:
-
-1. Run `pwd` — confirm you are operating in the correct directory
-2. Check for a `TASK.md` in the current directory — if present, read it in full
-3. Check for a `progress.txt` in the current directory — if present, read it in full
-4. Run `git log --oneline -10` — orient yourself to recent history
-5. If `progress.txt` indicates in-progress work: run the smoke test described in `TASK.md` before touching any code
-
-Never skip this ritual. It takes seconds and prevents wasted work.
+Before doing anything else: `pwd`, then check for a `progress.txt` in the current directory — if present, read it in full, then `git log --oneline -10` to get context on the previous work. If `progress.txt` shows in-progress work, confirm the last known state before touching code.
 
 ---
 
-## 2. Workflow Modes
+## 2. Progress Tracking & Git
 
-There are three named modes. Understand which one you are in at the start of each session.
-
-### Mode 1 — Exploration (Claude Desktop)
-
-Used for research, architecture discussions, Jira/Confluence investigation, and design decisions. **No code changes in this mode.** Goals:
-
-- Gather information using available tools (Jira, Confluence, Sourcegraph, Slack, GitHub)
-- Develop a clear understanding of the problem space
-- Surface tradeoffs and open questions
-- Produce a TASK.md handoff artifact when the design is settled (see Section 5)
-
-### Mode 2 — Handoff Generation (Claude Desktop)
-
-Triggered when exploration is complete and implementation is ready to begin. Output a single `TASK.md` file using the template in Section 5. This file is the contract between Desktop and Code — it should be specific enough that a fresh Claude Code session can begin immediately without needing clarifying questions.
-
-### Mode 3 — Implementation (Claude Code CLI)
-
-Reads `TASK.md` and `progress.txt`, makes code changes, runs tests, and commits. Governed by all rules in Sections 3, 4, and 6.
-
----
-
-## 3. Progress Tracking & Git
-
-### progress.txt
-
-- Create `progress.txt` at the start of any task that will span more than one session, or any task with more than ~3 distinct steps
-- Update it **before ending a session** — never leave mid-task without updating it
-- Update it **after completing a meaningful unit of work** (a passing test suite, a successful refactor, a decision made)
-- It is a living document: rewrite sections as things change, don't just append
+**progress.txt** — create for any task spanning multiple sessions or >3 steps. Update before ending a session and after each meaningful unit of work. Rewrite sections as things change; don't just append. Inform me specifically when doing this and present the current state of the progress file.
 
 Format:
 
 ```
 ## Task
-<one-line summary of what this task is>
-
+<one-line summary>
 ## Status
 IN_PROGRESS | BLOCKED | COMPLETE
-
 ## Completed
-- <concrete thing done, with file paths where relevant>
-- ...
-
+- <concrete thing done, with file paths>
 ## Next Steps
-- <specific next action — enough detail for a fresh session to pick up immediately>
-- ...
-
+- <specific next action, enough for a fresh session to resume>
 ## Blockers / Open Questions
-- <anything unresolved that needs discussion before proceeding>
+- <unresolved items needing discussion>
 ```
 
-### Git
-
-- Commit after every meaningful, self-contained unit of work
-- Commit messages: `<type>(<scope>): <short description>` — e.g. `fix(quota-util): handle union-type proto requests correctly`
-- Never commit broken code or failing tests
-- Use `git stash` if you need to context-switch mid-task
-- Before starting new feature work, verify the last commit left things in a working state
+**Git** — commit after each self-contained unit of work. Messages: `<type>(<scope>): <description>` (imperative), e.g. `fix(quota-util): handle union-type proto requests`. Never commit broken code. Use `git stash` to context-switch. (Pushing/PRs: see Hard Constraints.)
 
 ---
 
-## 4. Parallel Tool Calls
+## 3. Tool Calls
 
-For **exploration tasks** (reading files, searching codebases, fetching Jira/Confluence): fire parallel tool calls aggressively. Read multiple files simultaneously, run multiple searches at once. Speed matters here.
-
-For **implementation tasks**: prefer sequential tool calls when one result informs the next. Never guess parameters to enable parallelism — if you need a value from a prior call, wait for it.
-
-Never use placeholders or invented parameter values in tool calls.
+Exploration (reads, searches, Jira/Confluence fetches): parallelize aggressively. Implementation: sequence calls when one result informs the next. Never guess or use placeholder parameters.
 
 ---
 
-## 5. TASK.md Template
+## 4. Code Quality
 
-When generating a handoff from Desktop to Code, produce a `TASK.md` with this structure:
+**General**
+- Read enough to understand the change fully. On large codebases with long files, read the relevant region plus surrounding context and callers/callees — not the entire file. Read small files in full.
+- Follow existing conventions in the file/module before applying your own preferences.
+- Modular, single-responsibility code. Maintainability over cleverness.
+- Flag files growing well past ~500 LOC for refactoring (tests excepted).
 
-```markdown
-# Task: <title>
+**Testing**
+- New or changed behaviour needs meaningful test coverage. Cover edge cases and errors. Don't write low-value tests (trivial getters/wrappers) just to satisfy a rule.
+- Keep code mockable; avoid tight coupling to concrete implementations.
 
-## Context
-<Why this task exists. Link to Jira ticket, Confluence doc, or prior discussion.>
-
-## Problem Statement
-<What is broken or missing. Be concrete.>
-
-## Proposed Solution
-<The agreed-upon approach. Enough detail that implementation can begin without ambiguity.>
-
-## Affected Files / Services
-<List the files, services, or modules expected to change.>
-
-## Acceptance Criteria
-- [ ] <Specific, testable criterion>
-- [ ] <...>
-
-## Out of Scope
-<Explicitly list things that might seem related but should not be touched in this task.>
-
-## Smoke Test
-<The command or manual step to verify the implementation works end-to-end.>
-
-## Open Questions
-<Anything unresolved. If this section is non-empty, resolve before beginning implementation.>
-```
+**Dependencies** — prefer lightweight, well-maintained libraries; never add one without a clear reason; keep them current.
 
 ---
 
-## 6. Code Quality
+## 5. Validation (before declaring done or committing)
 
-### General
-
-- Read every file in full before making changes — never edit based on a partial read
-- Follow existing conventions in the file/module you are editing before applying your own preferences
-- Keep files under 500 LOC (tests may be longer); if a file exceeds this, flag it for refactoring
-- Write modular, single-responsibility code
-- Don't overcomplicate — maintainability and readability over cleverness
-
-### Testing
-
-- Every function created or modified must have a corresponding unit test
-- Tests must cover edge cases and error handling
-- Everything must be mockable — avoid tight coupling to concrete implementations
-- Run the full test suite after any change before committing
-- Never remove or weaken tests to make a build pass — flag the situation instead
-
-### Dependencies
-
-- Prefer lightweight, well-maintained libraries
-- Never add a dependency without a clear reason
-- Keep dependencies current
+- Run the project's own checks — format, lint, type-check, AND tests — using the repo's documented commands. Discover them from `AGENTS.md`, `Makefile`, `package.json`, or equivalent; don't assume. If not sure - ask.
+- Run the narrowest relevant target first, then broaden only if needed. Never default to a full suite run — target only affected modules or test targets. Full suite runs are rarely warranted and often very slow.
+- **Report the exact commands you ran and their results before claiming completion.** Never assert that something passes without having run it.
 
 ---
 
-## 7. Uncertainty & Ambiguity Policy
+## 6. Uncertainty Policy — when in doubt, stop and ask
 
-This is non-negotiable: **when in doubt, stop and ask.**
+Pause and discuss when: the approach is unclear with multiple reasonable paths; a task needs changes well beyond scope; a test looks wrong; existing design conflicts with requirements; a destructive/irreversible action is required; or you're about to make an assumption that would cause significant rework if wrong.
 
-Specifically, pause and discuss with the user when:
-
-- The correct approach is unclear and multiple reasonable paths exist
-- A task would require changes significantly beyond the described scope
-- A test appears to be wrong or testing the wrong thing
-- The existing code has a design that conflicts with the task requirements
-- Any destructive or irreversible action is required (deleting data, dropping tables, removing configs)
-- You are about to make an assumption that, if wrong, would require significant rework
-
-Do not hack around ambiguity. Do not hard-code solutions to pass tests. Do not silently expand scope. Surface the issue clearly, explain what you observed, and propose options if you have them.
+Surface the issue clearly, explain what you observed, and propose options.
 
 ---
 
-## 8. CLI Tool Preferences
+## 7. CLI Tool Preferences
 
-- **Search code**: `rg -t java "pattern"` (not `grep --include="*.java"`)
-  Use `-l` for file list, `-n` for line numbers, `-g "*.properties"` for glob filter
-- **Find files**: `fd -e java ClassName` (not `find . -name "*.java"`)
-- **GitHub**: `gh pr create/edit/view` — use `gh pr edit <num> --body "..."` to update PR bodies after creation
-- **JSON processing**: `jq` for parsing/filtering JSON output (e.g. from `gh api` or curl responses)
-- **YAML processing**: `yq` for parsing/filtering YAML files and output
-- If any of the above tools are not found or fail, fall back to their default equivalents (`grep`, `find`, `python3 -m json.tool`, etc.)
+- Search: `rg -t java "pattern"` (`-l` files, `-n` lines, `-g "*.properties"` glob)
+- Find files: `fd -e java ClassName`
+- GitHub: `gh pr create/edit/view` (`gh pr edit <num> --body "..."`)
+- JSON: `jq`  •  YAML: `yq`
+- Fall back to defaults (`grep`, `find`, `python3 -m json.tool`) if a tool is missing.
 
 ---
+
+## 8. Definition of Done
+
+Before declaring a task complete: validation commands run and passed (reported with results), scope respected, no secrets or generated files touched, `progress.txt` updated, nothing pushed/PR'd unless explicitly requested.
