@@ -173,3 +173,15 @@ Specifically, pause and discuss with the user when:
 Do not hack around ambiguity. Do not hard-code solutions to pass tests. Do not silently expand scope. Surface the issue clearly, explain what you observed, and propose options if you have them.
 
 ---
+
+## 8. CLI Tool Preferences
+
+- **Search code**: `rg -t java "pattern"` (not `grep --include="*.java"`)
+  Use `-l` for file list, `-n` for line numbers, `-g "*.properties"` for glob filter
+- **Find files**: `fd -e java ClassName` (not `find . -name "*.java"`)
+- **GitHub**: `gh pr create/edit/view` — use `gh pr edit <num> --body "..."` to update PR bodies after creation
+- **JSON processing**: `jq` for parsing/filtering JSON output (e.g. from `gh api` or curl responses)
+- **YAML processing**: `yq` for parsing/filtering YAML files and output
+- If any of the above tools are not found or fail, fall back to their default equivalents (`grep`, `find`, `python3 -m json.tool`, etc.)
+
+---
