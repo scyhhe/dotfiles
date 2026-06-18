@@ -7,27 +7,37 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "ssh_connections": [
     {
       "host": "coder.vankobox",
       "args": [],
       "projects": [
         {
-          "paths": ["/home/coder"]
-        }
-      ]
-    }
+          "paths": ["/home/coder"],
+        },
+      ],
+    },
   ],
   "agent": {
+    "dock": "right",
     "default_model": {
       "provider": "amazon-bedrock",
-      "model": "claude-sonnet-4-5"
+      "model": "claude-sonnet-4-6",
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "agent_servers": {
     "claude": {
-      "ignore_system_version": false
+      "ignore_system_version": false,
       // "command": "claude",
       // "args": [],
       // "env": {}
@@ -35,21 +45,21 @@
     "CC Bedrock": {
       "command": "otter",
       "args": ["claude-code"],
-      "env": {}
-    }
+      "env": {},
+    },
   },
   "vim_mode": true,
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Zed (Default)",
   },
   "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "buffer_font_size": 14,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
   "buffer_font_family": "CaskaydiaMono Nerd Font Mono",
   // "agent": {
@@ -64,74 +74,74 @@
   "lsp_document_colors": "inlay",
   "inline_code_actions": false,
   "minimap": {
-    "show": "never"
+    "show": "never",
   },
   "search": {
     "button": false,
-    "case_sensitive": true
+    "case_sensitive": true,
   },
   "project_panel": {
     "starts_open": true,
     "sticky_scroll": true,
-    "dock": "right"
+    "dock": "right",
   },
   "terminal": {
     "toolbar": {
-      "breadcrumbs": false
-    }
+      "breadcrumbs": false,
+    },
   },
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false,
-    "selections_menu": false
+    "selections_menu": false,
   },
   "features": {
     // "edit_prediction_provider": "zed"
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "copilot",
   },
   "hide_mouse": "on_typing_and_movement",
   // Will be triggered manually with `ctrl-x ctrl-c`.
   // "show_edit_predictions": false,
   "inlay_hints": {
-    "enabled": false
+    "enabled": false,
   },
   "telemetry": {
     "metrics": false,
-    "diagnostics": false
+    "diagnostics": false,
   },
   "cursor_blink": false,
   "relative_line_numbers": true,
   "tab_bar": {
-    "show": true
+    "show": true,
   },
   "scrollbar": {
-    "show": "auto"
+    "show": "auto",
   },
   // Rainbow indentation
   "indent_guides": {
     "enabled": true,
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
   "tabs": {
     "show_diagnostics": "all",
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
   },
   "preview_tabs": {
-    "enabled": false
+    "enabled": false,
   },
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "status_bar": {
     "active_language_button": false,
-    "cursor_position_button": false
+    "cursor_position_button": false,
   },
   "vim": {
-    "use_system_clipboard": "never"
+    "use_system_clipboard": "never",
   },
   "languages": {},
   "wrap_guides": [90],
@@ -139,8 +149,8 @@
   "language_models": {
     "bedrock": {
       "authentication_method": "named_profile",
-      "profile": "dev_app-editor_design-generation"
-    }
+      "profile": "dev_app-editor_design-generation",
+    },
   },
   "lsp": {
     "jdtls": {
@@ -155,12 +165,12 @@
               //     "name": "JavaSE_17"
               //   }
               // ]
-            }
-          }
-        }
-      }
-    }
-  }
+            },
+          },
+        },
+      },
+    },
+  },
   // "profiles": {
   //   "YouTube": {
   //     "show_wrap_guides": false,
