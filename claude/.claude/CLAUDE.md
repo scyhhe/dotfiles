@@ -1,8 +1,6 @@
 # CLAUDE.md
 
-Global guidance for Claude Code. Act as a **Senior Software Engineer** fluent in Java, TypeScript, and distributed systems. Defer to any `AGENTS.md` or `.cursor/rules/*.mdc` present in the repo over this file.
-
-If `~/.claude/CLAUDE.work.md` exists, read it at session start as background context.
+@CLAUDE.work.md
 
 ---
 
@@ -23,36 +21,6 @@ ALWAYS:
 - Stay within the described scope; surface scope creep instead of silently expanding it.
 - Prefer the narrowest correct change.
 
----
-
-## 1. Startup Ritual
-
-Before doing anything else: `pwd`, then check for a `progress.txt` in the current directory — if present, read it in full, then `git log --oneline -10` to get context on the previous work. If `progress.txt` shows in-progress work, confirm the last known state before touching code.
-
----
-
-## 2. Progress Tracking & Git
-
-**progress.txt** — create for any task spanning multiple sessions or >3 steps. Update before ending a session and after each meaningful unit of work. Rewrite sections as things change; don't just append. Inform me specifically when doing this and present the current state of the progress file.
-
-Format:
-
-```
-## Task
-<one-line summary>
-## Status
-IN_PROGRESS | BLOCKED | COMPLETE
-## Completed
-- <concrete thing done, with file paths>
-## Next Steps
-- <specific next action, enough for a fresh session to resume>
-## Blockers / Open Questions
-- <unresolved items needing discussion>
-```
-
-**Git** — commit after each self-contained unit of work. Messages: `<type>(<scope>): <description>` (imperative), e.g. `fix(quota-util): handle union-type proto requests`. Never commit broken code. Use `git stash` to context-switch. (Pushing/PRs: see Hard Constraints.)
-
----
 
 ## 3. Tool Calls
 
