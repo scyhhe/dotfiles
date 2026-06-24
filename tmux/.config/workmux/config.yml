@@ -1,10 +1,10 @@
-agent: claude
+agent: opencode
 merge_strategy: rebase
 nerdfont: true
 window_prefix: "wm-"
 
 panes:
-  - command: opencode
+  - command: <agent>
     focus: true
   - split: vertical
     percentage: 35
