@@ -1,0 +1,5 @@
+# The neutral source file lives at this package's root. Stow must NOT link it
+# to a bare ~/AGENTS.md. Only the per-agent symlinks (.claude/CLAUDE.md,
+# .config/opencode/AGENTS.md, .pi/agent/AGENTS.md) should be stowed; they point
+# back to this AGENTS.md within the package.
+/AGENTS\.md

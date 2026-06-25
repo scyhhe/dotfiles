@@ -1,8 +1,4 @@
-# CLAUDE.md
-
-@CLAUDE.work.md
-
----
+# Agent Instructions
 
 ## Hard Constraints (Non-Negotiable)
 
