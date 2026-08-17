@@ -1,33 +1,40 @@
 return {
-  "ThePrimeagen/harpoon",
-  branch = "harpoon2",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  'ThePrimeagen/harpoon',
+  branch = 'harpoon2',
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  config = function()
+    local harpoon = require('harpoon')
+    -- REQUIRED: sets up harpoon's autocmds
+    harpoon:setup()
+    -- Highlight the current file in the quick menu
+    harpoon:extend(require('harpoon.extensions').builtins.highlight_current_file())
+  end,
   keys = function()
     local keys = {
       {
-        "<leader>H",
+        '<leader>ha',
         function()
-          require("harpoon"):list():add()
+          require('harpoon'):list():add()
         end,
-        desc = "Harpoon File",
+        desc = 'Harpoon: [a]dd file',
       },
       {
-        "<leader>h",
+        '<leader>hh',
         function()
-          local harpoon = require("harpoon")
+          local harpoon = require('harpoon')
           harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
-        desc = "Harpoon Quick Menu",
+        desc = 'Harpoon: quick menu',
       },
     }
 
     for i = 1, 9 do
       table.insert(keys, {
-        "<leader>" .. i,
+        '<leader>' .. i,
         function()
-          require("harpoon"):list():select(i)
+          require('harpoon'):list():select(i)
         end,
-        desc = "Harpoon to File " .. i,
+        desc = 'Harpoon to file ' .. i,
       })
     end
     return keys
