@@ -25,6 +25,7 @@ font-family = "Caskaydia Nerd Font Mono"
 font-thicken=true
 font-thicken-strength=1
 adjust-cell-height=1
+theme=nordic
 
 # cursor
 cursor-style = block
