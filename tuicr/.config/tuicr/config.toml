@@ -1,0 +1,29 @@
+# tuicr — terminal PR-review TUI (https://github.com/agavra/tuicr)
+
+# Theme: matches the nord setup across nvim (nordic), tmux (nordtheme), ghostty (nordic)
+theme = "nord-dark"
+
+# Vim modal editing in the comment box (Normal/Insert/Visual). Toggle at runtime with :vim / :novim
+comment_vim = true
+
+# Side-by-side diffs read well on a wide terminal; toggle in-app with :diff
+diff_view = "side-by-side"
+
+# Keep context above/below the cursor when scrolling (like vim's scrolloff)
+scroll_offset = 8
+
+# Relative gutter numbers pair well with {N}j / {N}k motions
+relative_line_numbers = true
+
+# Single-character leader for panel focus / sidebar toggles / review-comment shortcuts
+leader = ";"
+
+# Comment classification: badges in the TUI, [TYPE] tags on submit/export, and an
+# LLM legend in the clipboard export (agent handoff). First entry is the default.
+comment_types = [
+  { id = "issue",      color = "red",     definition = "must fix before merge" },
+  { id = "suggestion", color = "yellow",  definition = "possible improvement, non-blocking" },
+  { id = "nit",        label = "nitpick", color = "#d19a66", definition = "small optional tweak" },
+  { id = "question",   color = "blue",    definition = "ask for clarification" },
+  { id = "praise",     color = "green",   definition = "positive feedback" },
+]
