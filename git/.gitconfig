@@ -1,23 +1,52 @@
 # ~/.gitconfig  (stowed)
 
+[user]
+	name = Ivan Toporkov
+	email = ivantoporkov@canva.com
+
 [core]
 	excludesFile = ~/.gitignore_global
-  editor = nvim
+	editor = nvim
+	pager = delta
+
 [alias]
-  st = status -s
-  cge = config --global --edit
-  reset-origin = reset --hard @{u}
-  branch-diff = log --oneline --graph --decorate --abbrev-commit
-  ld = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
-  ch = checkout
-; [pull]
-	; rebase = true
+	st = status -s
+	cge = config --global --edit
+	reset-origin = reset --hard @{u}
+	branch-diff = log --oneline --graph --decorate --abbrev-commit
+	ld = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+	ch = checkout
+	hdiff = -c core.pager="hunk pager" diff
+	hshow = -c core.pager="hunk pager" show
+
 [push]
 	autoSetupRemote = true
 
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+	conflictStyle = zdiff3
+
+# git-lfs (used by the Canva monorepo)
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+# ── Personal / work identity split ──────────────────────────────────────────
+# Repos under these directories use the personal identity in ~/.gitconfig-personal
+# instead of the global (work) identity above.
 [includeIf "gitdir:~/.dotfiles/"]
-  path = ~/.gitconfig-personal
+	path = ~/.gitconfig-personal
 
 # Optionally treat this whole tree as "personal" too:
 [includeIf "gitdir:~/personal/"]
-  path = ~/.gitconfig-personal
+	path = ~/.gitconfig-personal
+[maintenance]
+	repo = /Users/ivantoporkov/Work/vanko

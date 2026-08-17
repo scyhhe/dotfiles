@@ -1,8 +1,12 @@
-# ~/.gitconfig-personal  (stowed)
-
+# Personal identity, applied via the includeIf blocks in ~/.gitconfig for repos
+# under ~/.dotfiles/ and ~/personal/.
+#
+# If you are reusing these dotfiles: replace the name/email below with your own
+# personal identity (or delete this file and the includeIf blocks in .gitconfig
+# if you don't want a work/personal split).
 [user]
-  name = Your Name
-  email = your_personal_email@example.com
+	name = scyhhe
+	email = dimitrov.toporkov@gmail.com
 
 # If you sign commits with SSH or GPG, uncomment and fill:
 # [gpg]
