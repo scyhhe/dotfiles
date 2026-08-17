@@ -9,5 +9,6 @@ return {
                 float = true
             }
         })
+        vim.cmd.colorscheme 'nordic'
     end
 }
