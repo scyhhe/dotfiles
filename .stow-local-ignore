@@ -12,20 +12,16 @@
 # Scripts and installers (not dotfiles)
 /clone.sh
 /fresh.sh
-/ssh.sh
 
 # Top-level files that shouldn't be linked to $HOME
 /aliases.zsh
 /path.zsh
-/minimal.zsh-theme
 /Brewfile
 /.macos
 
 # Folders you don't want stowed
-^/themes
 ^/art
 ^/other
-^/plugins
 
 # Ignore this file itself
 /.stow-local-ignore

@@ -3,7 +3,7 @@
 echo "Setting up your Mac..."
 
 # Check for Oh My Zsh and install if we don't have it
-if test ! $(which omz); then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
 fi
 
@@ -17,9 +17,16 @@ fi
 
 brew install stow
 
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
-rm -rf $HOME/.zshrc
-rm -rf $HOME/.gitconfig
+# Remove any pre-existing real ~/.zshrc and ~/.gitconfig so stow can symlink them.
+# Back up first (only if they exist and aren't already symlinks) to avoid silent data loss.
+for f in "$HOME/.zshrc" "$HOME/.gitconfig"; do
+  if [ -f "$f" ] && [ ! -L "$f" ]; then
+    echo "Backing up existing $f -> $f.bak"
+    mv "$f" "$f.bak"
+  else
+    rm -f "$f"
+  fi
+done
 # ln -sw $HOME/.dotfiles/.zshrc $HOME/.zshrc <- replaced by stow a bit further down
 
 # Add stow to instantiate all symlinks - uses .stow-local-ignore to filter out files and folders
@@ -32,9 +39,9 @@ brew update
 # Install all our dependencies with bundle (See Brewfile)
 brew bundle --file ./Brewfile
 
-# Create a projects directories
-mkdir $HOME/Personal
-mkdir $HOME/Work
+# Create project directories (lowercase to match the includeIf in git/.gitconfig)
+mkdir -p "$HOME/personal"
+mkdir -p "$HOME/work"
 
 # Clone Github repositories
 ./clone.sh
