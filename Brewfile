@@ -1,13 +1,13 @@
 # Taps
-tap 'homebrew/bundle'
+tap 'raine/workmux' # third-party tap for workmux (used by tmux config)
 
 # Binaries, dependencies and system package updates
 brew 'bash' # Latest Bash version
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'ffmpeg'
 brew 'git'
+brew 'git-lfs'
 brew 'grep'
-brew 'mackup'
 brew 'mas' # Mac App Store manager
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'svn' # Needed to install fonts
@@ -35,9 +35,13 @@ brew 'httpie'
 brew 'atuin'
 brew 'lazygit'
 brew 'lazydocker'
-brew 'neofetch'
+brew 'fastfetch'
 brew 'tree'
 brew 'xan'
+brew 'tmux'
+brew 'workmux'
+brew 'git-delta'
+brew 'tuicr'
 
 # Casks 
 cask 'arc'
