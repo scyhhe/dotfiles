@@ -82,6 +82,7 @@ nnoremap L $
 nnoremap W [w
 nnoremap B [b
 nnoremap E ]w
+nnoremap q b
 
 " Y yank whole line by default
 vnoremap y ygv<Esc>$
@@ -140,7 +141,7 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <Leader>aa ggVG
 
 " execute macro saved in 'q' register
-nnoremap qj @q
+" nnoremap qj @q
 
 " move lines up/down with alt
 " nnoremap <a-j> ma:m+1<cr>`a
