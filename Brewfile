@@ -44,7 +44,7 @@ brew 'git-delta'
 brew 'tuicr'
 
 # Casks 
-cask 'arc'
+cask 'zen'
 cask 'firefox'
 cask 'obsidian'
 cask 'linearmouse'
